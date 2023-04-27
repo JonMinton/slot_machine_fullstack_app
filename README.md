@@ -1,10 +1,6 @@
-# slot_machine_fullstack_app
-
-
-
 
 #  Slot Machine - A Browser Game App
-A group project as part of Codeclan E63
+*A week-long group project as part of Codeclan E63*
 
 ## Project group members
 Jon Minton, Gregorio Fumagalli, Paul Henstridge, Andrew Dyson
@@ -38,3 +34,17 @@ In such machines a user would add cash through a coin slot, press a button to ca
     - Value per win
     - Elements in wheel
 - Display PNL for each user
+
+## Uses of APIs
+
+The app will make use of API calls in order to grab icons/gylphs for the elements in the wheel. 
+
+## Uses of databases
+
+The app will make use of databases in order to store user details and state
+
+
+## Intended tech stack
+
+- **Front end**: React/Javascript, with HTML and CSS
+- **Back End**: Express.js, MongoDb
