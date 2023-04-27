@@ -22,7 +22,16 @@ In such machines a user would add cash through a coin slot, press a button to ca
 
 - A feature for user to add cash
 - A feature for displaying user's current balance
-- A feature for displaying three wheels
+- A feature for displaying three wheels, selecting random symbols from an array
+    - including option to hold any of the wheels before next spin
+- Option to register and select different users
+    - registratio option will include name and initial balance
+    - select option will resume styored balance of selected user
+- Option fo ruser to cash out winnings
+- images for icons will be drawn from an API
+
+
+
 
 Model and test the game logic and then display it in the browser for a user to interact with.
 
