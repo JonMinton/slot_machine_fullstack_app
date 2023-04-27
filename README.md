@@ -28,13 +28,13 @@ In such machines a user would add cash through a coin slot, press a button to ca
     - registratio option will include name and initial balance
     - select option will resume styored balance of selected user
 - Option fo ruser to cash out winnings
-- images for icons will be drawn from an API
+- Images for icons will be drawn from an API
+- Visual display of win and loss streak
 
+## EXTENSIONS
 
-
-
-Model and test the game logic and then display it in the browser for a user to interact with.
-
-Write your own MVP with some specific goals to be achieved based on the game you choose to model.
-
-You might use persistence to keep track of the state of the game or track scores/wins. Other extended features will depend on the game you choose.
+- Admin is allowed to adjust play options including
+    - Cost per play
+    - Value per win
+    - Elements in wheel
+- Display PNL for each user
