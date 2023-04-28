@@ -1,4 +1,5 @@
 import './WheelBox.css'
+import { useState } from 'react';
 
 import Wheel from './Wheel';
 import WheelHold from './WheelHold';
