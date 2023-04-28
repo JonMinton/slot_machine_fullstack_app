@@ -18,8 +18,8 @@ const GameBox = ({balance, updateBalance}) => {
             <PayIn handlePayIn = {(amt) => {updateBalance(amt)}}/>
             <PlayGame handlePlay = {(amt) => {updateBalance(amt)}} />
             <ShowBalance>{balance}</ShowBalance>
-
-            {/* <WheelsDisplay/>
+            <WheelsDisplay/>
+            {/* 
 
             <StreakBox/>
             <CashoutBox/>
