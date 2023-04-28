@@ -17,13 +17,13 @@ const UserExistingSelect = ({users, handleUserSelect, activeUser}) => {
         <div className="UserExistingSelect">
             <p>UserExistingSelect</p>
             <p>I agree there are {users.length} users</p>
-            <p>The active user is {activeUser.name}</p>
+            {activeUser && <p>The active user is {activeUser.name}</p>}
             <label htmlFor="user-selections">Select a user</label>
             <select 
                 name="user-selections" 
                 id = "user-selections" 
                 onChange = {handleUserSelected}
-                value = {activeUser._id}
+                value = {activeUser ? activeUser._id : ""}
             >
                 <option value="">None</option>
                 {renderUserOptions}

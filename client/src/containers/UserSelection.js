@@ -5,40 +5,20 @@ import './UserSelection.css'
 import UserExistingSelect from '../components/UserExistingSelect';
 import UserNewForm from '../components/UserNewForm';
 
-const seedUsers = [
-    {
-        _id: Math.random(),
-        name: "Alice",
-        balance: 0.00
-    },
-    {
-        _id: Math.random(),
-        name: "Bob",
-        balance: 0.00
-    },
-    {
-        _id: Math.random(),
-        name: "Charlie",
-        balance: 0.00
-    }
 
-]
 
-const UserSelection = ({handleActiveUserSelected, activeUser}) => {
+const UserSelection = ({users, handleActiveUserSelected, handleAddNewUser, activeUser}) => {
 
-    const [users, setUsers] = useState([])
 
-    useEffect(() => {
-        setUsers(seedUsers)
-        
-    }, [])
 
     const handleUserSelect = (id) => {
         console.log(`handleUserSelect called with id ${id}`)
         if (id === ""){
             handleActiveUserSelected(null)
         } else {
-            const activeUser = users.filter(user => user._id === id)
+            const activeUser = users.filter((user) => 
+            {return(user._id === Number(id))})[0]
+            console.log(activeUser)
             handleActiveUserSelected(activeUser)    
         }
     }
@@ -46,11 +26,7 @@ const UserSelection = ({handleActiveUserSelected, activeUser}) => {
     const handleUserAdd = (newUser) => {
         console.log("handleUserAdd called")
         console.log(newUser)
-        let tempUsers = users
-        tempUsers.push(newUser)
-        console.log(tempUsers)
-        setUsers(tempUsers)
-        // setUsers(...users, ...newUser)
+        handleAddNewUser(newUser)
         handleActiveUserSelected(newUser)
     }
 

@@ -3,14 +3,14 @@ import React, {useState} from 'react'
 const UserNewForm = ({handleUserAdd}) => {
 
     const [userName, setUserName] = useState('')
-    const [userBalance, setUserBalance] = useState('')
+    const [userBalance, setUserBalance] = useState(0.0)
 
     const handleNameChange = (e) => {
         setUserName(e.target.value)
     }
 
     const handleUserBalanceChange = (e) => {
-        setUserBalance(e.target.value)
+        setUserBalance(Number(e.target.value))
     }
 
     
@@ -23,9 +23,9 @@ const UserNewForm = ({handleUserAdd}) => {
 
         handleUserAdd(
             {
-                _id: Math.random(), // This needs to be changed when server set up!
+                _id: Math.floor(Math.random() * (10 ** 8)), // This needs to be changed when server set up!
                 name: userName,
-                balance: userBalance
+                balance: Number(userBalance)
             }
         )
         setUserName('')

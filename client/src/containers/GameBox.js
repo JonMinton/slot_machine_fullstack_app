@@ -8,11 +8,19 @@ import StreakBox from '../components/StreakBox';
 import WheelsDisplay from '../components/WheelsDisplay';
 import './GameBox.css'
 
-const GameBox = () => {
+const GameBox = ({activeUser, updateActiveUserBalance}) => {
+
+    const handlePayIn = (amt) => {
+        console.log(`${amt} paid in`)
+        updateActiveUserBalance(amt)
+    }
+
     return (
         <div className="GameBox">
-            <h1>GameBox</h1>
-            <PayIn/>
+        <p>GameBox</p>
+        <p>The active user is {activeUser.name}</p>
+        <p>The active user's balance is {activeUser.balance}</p>
+            <PayIn handlePayIn = {handlePayIn}/>
             <WheelsDisplay/>
             <PlayGame/>
             <ShowBalance/>
