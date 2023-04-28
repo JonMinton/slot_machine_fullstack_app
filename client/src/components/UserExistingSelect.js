@@ -17,13 +17,13 @@ const UserExistingSelect = ({users, handleUserSelect, activeUser}) => {
         <div className="UserExistingSelect">
             <p>UserExistingSelect</p>
             <p>I agree there are {users.length} users</p>
-            <p>The active user is</p>
+            <p>The active user is {activeUser.name}</p>
             <label htmlFor="user-selections">Select a user</label>
             <select 
                 name="user-selections" 
                 id = "user-selections" 
                 onChange = {handleUserSelected}
-                defaultValue = {activeUser ? activeUser._id : ""}
+                value = {activeUser._id}
             >
                 <option value="">None</option>
                 {renderUserOptions}

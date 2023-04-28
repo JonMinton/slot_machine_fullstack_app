@@ -8,7 +8,7 @@ import UserSelection from './containers/UserSelection';
 
 function App() {
 
-  const [activeUser, setActiveUser] = useState(null)
+  const [activeUser, setActiveUser] = useState("")
 
   const handleActiveUserSelected = (selectedUser) => {
     setActiveUser(selectedUser)
