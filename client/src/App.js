@@ -34,7 +34,14 @@ function App() {
 
   useEffect(() => {
       setUsers(seedUsers)
-      
+  }, [])
+
+  useEffect(() => {
+    console.log("Change to active user state detected")
+  }, [activeUser])
+
+  useEffect(() => {
+    console.log("Change to users state detected")
   }, [])
 
   const handleActiveUserSelected = (selectedUser) => {
@@ -42,14 +49,15 @@ function App() {
     setActiveUser(selectedUser)
   }
 
-  const updateActiveUserBalance = (amt) => {
-    // console.log('updateActiveUserBalance called')
-    console.log(activeUser)
-    let currentActiveUser = activeUser
-    // console.log(currentActiveUser.balance)
-    currentActiveUser.balance += Number(amt)
-    // console.log(currentActiveUser.balance)
-    setActiveUser(currentActiveUser)
+  const updateBalance = (amt) => {
+    console.log(`updateBalance called for amount ${amt}`)
+    const tempUsers = users.map(usr => {
+      if (usr._id === activeUser._id){
+        usr.balance += amt
+      }
+      return usr
+    })
+    setUsers(tempUsers)
   }
 
   const handleAddNewUser = (newUser) => {
@@ -61,8 +69,9 @@ function App() {
 
   return (
     <div className="App">
+      <p>App</p>
       <UserSelection users = {users} handleActiveUserSelected={handleActiveUserSelected} handleAddNewUser = {handleAddNewUser} activeUser={activeUser}/>
-      {/* {activeUser && <GameBox users = {users} activeUser={activeUser} updateActiveUserBalance={updateActiveUserBalance}/>} */}
+      {activeUser && <GameBox balance = {activeUser.balance} updateBalance = {updateBalance}/>}
       {activeUser && <RulesDisplay/>}
     </div>
   );

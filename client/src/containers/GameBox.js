@@ -1,4 +1,5 @@
 
+import { useEffect, useState } from 'react';
 import AdminBox from '../components/AdminBox';
 import CashoutBox from '../components/CashoutBox';
 import PayIn from '../components/PayIn';
@@ -8,25 +9,21 @@ import StreakBox from '../components/StreakBox';
 import WheelsDisplay from '../components/WheelsDisplay';
 import './GameBox.css'
 
-const GameBox = ({activeUser, updateActiveUserBalance}) => {
+const GameBox = ({balance, updateBalance}) => {
 
-    const handlePayIn = (amt) => {
-        console.log(`${amt} paid in`)
-        updateActiveUserBalance(amt)
-    }
 
     return (
         <div className="GameBox">
         <p>GameBox</p>
-        <p>The active user is {activeUser.name}</p>
-        <p>The active user's balance is {activeUser.balance}</p>
-            <PayIn handlePayIn = {handlePayIn}/>
-            <WheelsDisplay/>
-            <PlayGame/>
-            <ShowBalance/>
+            <PayIn handlePayIn = {(amt) => {updateBalance(amt)}}/>
+            <PlayGame handlePlay = {(amt) => {updateBalance(amt)}} />
+            <ShowBalance>{balance}</ShowBalance>
+
+            {/* <WheelsDisplay/>
+
             <StreakBox/>
             <CashoutBox/>
-            <AdminBox/>
+            <AdminBox/> */}
         </div>
       );
 }

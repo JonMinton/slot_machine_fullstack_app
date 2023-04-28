@@ -16,7 +16,6 @@ const UserExistingSelect = ({users, handleUserSelect, activeUser}) => {
     return (
         <div className="UserExistingSelect">
             <p>UserExistingSelect</p>
-            <p>I agree there are {users.length} users</p>
             {activeUser && <p>The active user is {activeUser.name}</p>}
             <label htmlFor="user-selections">Select a user</label>
             <select 

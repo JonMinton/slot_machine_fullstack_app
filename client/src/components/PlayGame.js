@@ -1,9 +1,14 @@
 import './PlayGame.css'
 
-const PlayGame = () => {
+const PlayGame = ({handlePlay}) => {
+
+    const handleClick = () => {
+        handlePlay(-0.10)
+    }
+
     return (
     <div className="PlayGame">
-        <h3>PlayGame</h3>
+        <b onClick = {handleClick}>Click to play</b>
     </div>  
     );
 }
