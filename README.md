@@ -12,7 +12,7 @@ This brief provides further information on the MVP and extensions for this speci
 
 ## Project Aim
 Replicate some of the features and functionality of a 1980s fruit based slot machine.
-In such machines a user would add cash through a coin slot, press a button to cause three wheels to spin, have an option to pause any one or two of these wheels and recieve a cash payout if all three wheels showed the same fruit.
+In such machines a user would add cash through a coin slot, press a button to cause three wheels to spin, have an option to pause any one or two of these wheels and recieve a cash payout if all three wheels showed the same fruit.  
 
 ## MVP
 
@@ -21,9 +21,9 @@ In such machines a user would add cash through a coin slot, press a button to ca
 - A feature for displaying three wheels, selecting random symbols from an array
     - including option to hold any of the wheels before next spin
 - Option to register and select different users
-    - registratio option will include name and initial balance
-    - select option will resume styored balance of selected user
-- Option fo ruser to cash out winnings
+    - registration option will include name and initial balance
+    - select option will resume stored balance of selected user
+- Option for user to cash out winnings
 - Images for icons will be drawn from an API
 - Visual display of win and loss streak
 
@@ -41,7 +41,7 @@ The app will make use of API calls in order to grab icons/gylphs for the element
 
 ## Uses of databases
 
-The app will make use of databases in order to store user details and state
+The app will make use of databases in order to store user details and state.
 
 
 ## Intended tech stack
