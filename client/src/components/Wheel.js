@@ -1,9 +1,14 @@
 import './Wheel.css'
 
-const Wheel = () => {
+const Wheel = ({symbolSet, holdIt, previous}) => {
+
+    const symbols = ['Cherry', 'Banana', 'Orange', 'Apple']
+    const sampleOne = (arr) => {
+        return arr[(Math.random() * arr.length) | 0]
+    }
     return (
         <div className="Wheel">
-            <h4>Wheel</h4>
+            {sampleOne(symbols)}
         </div>
       );
 }

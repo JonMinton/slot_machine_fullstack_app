@@ -1,9 +1,10 @@
 import './PayIn.css'
 
-const PayIn = () => {
+const PayIn = ({handlePayIn}) => {
+
     return (
     <div className = "PayIn">
-        <h3>PayIn</h3>
+        <p onClick = {(e) => {handlePayIn(0.50)}}>Put in 50p</p>
     </div>  );
 }
  

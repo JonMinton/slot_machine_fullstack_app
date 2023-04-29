@@ -1,14 +1,18 @@
 import './WheelBox.css'
+import { useState } from 'react';
 
 import Wheel from './Wheel';
 import WheelHold from './WheelHold';
 
-const WheelBox = () => {
+const WheelBox = ({symbols}) => {
+
+    const [holdStatus, setHoldStatus] = useState(false)
+
     return (
         <div className="WheelBox">
             <h3>Wheelbox</h3>
-            <Wheel/>
-            <WheelHold/>
+            <Wheel symbols = {symbols}/>
+            <WheelHold holdStatus={holdStatus}/>
         </div>
       );
 }

@@ -1,9 +1,9 @@
 import './ShowBalance.css'
 
-const ShowBalance = () => {
+const ShowBalance = ({children}) => {
     return (
         <div className = 'ShowBalance'>
-            <h3>ShowBalance</h3>
+            <p><b>Balance</b>: £{Math.round(children * 100) / 100}</p>
         </div>
 
       );
