@@ -1,4 +1,21 @@
 .App {
-  background-color: rgba(0, 0, 255, 0);
+    background-color: rgba(0, 0, 255, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.App>* {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+
+/* keep .hidden at bottom of stylesheet */
+.hidden {
+    display: none;
+}

@@ -1,11 +1,17 @@
 import './PayIn.css'
 
-const PayIn = ({handlePayIn}) => {
+const PayIn = ({ handlePayIn }) => {
 
     return (
-    <div className = "PayIn">
-        <p onClick = {(e) => {handlePayIn(0.50)}}>Put in 50p</p>
-    </div>  );
+        <>
+            <div className="PayIn" onClick={(e) => { handlePayIn(0.50) }}>
+
+                <span id="coin-price">50p</span>
+
+            </div>
+        </>
+
+    );
 }
- 
+
 export default PayIn;

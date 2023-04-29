@@ -1,3 +1,11 @@
 .GameBox {
     background-color: rgba(255, 0, 0, 0.5);
 }
+
+.gamebox-controls {
+
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin-top: 3rem;
+}

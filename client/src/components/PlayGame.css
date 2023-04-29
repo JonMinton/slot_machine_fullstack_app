@@ -1,3 +1,7 @@
 .PlayGame {
     background-color: rgba(189, 183, 107, 0.5);
 }
+
+.PlayGame>button {
+    height: 100%;
+}

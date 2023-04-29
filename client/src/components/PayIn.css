@@ -1,3 +1,16 @@
 .PayIn {
     background-color: rgba(245, 255, 250, 0.500);
+    width: 0.5rem;
+    height: 3rem;
+    border: 2px solid black;
+    position: relative;
+    background-color: rgb(56, 54, 54);
+}
+
+#coin-price {
+    font-family: 'Caveat', cursive;
+    position: absolute;
+    left: -1rem;
+    bottom: -2.5rem;
+    font-size: 2rem;
 }

@@ -9,23 +9,26 @@ import StreakBox from '../components/StreakBox';
 import WheelsDisplay from '../components/WheelsDisplay';
 import './GameBox.css'
 
-const GameBox = ({balance, updateBalance}) => {
+const GameBox = ({ balance, updateBalance }) => {
 
 
     return (
         <div className="GameBox">
-        <p>GameBox</p>
-            <PayIn handlePayIn = {(amt) => {updateBalance(amt)}}/>
-            <PlayGame handlePlay = {(amt) => {updateBalance(amt)}} />
-            <ShowBalance>{balance}</ShowBalance>
-            <WheelsDisplay/>
+
+            <div className="gamebox-controls">
+                <PayIn handlePayIn={(amt) => { updateBalance(amt) }} />
+                <ShowBalance>{balance}</ShowBalance>
+                <PlayGame handlePlay={(amt) => { updateBalance(amt) }} />
+            </div>
+
+            <WheelsDisplay />
             {/* 
 
             <StreakBox/>
             <CashoutBox/>
             <AdminBox/> */}
         </div>
-      );
+    );
 }
- 
+
 export default GameBox;
