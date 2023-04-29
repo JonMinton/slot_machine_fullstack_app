@@ -1,5 +1,5 @@
 .GameBox {
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: hsl(182, 50%, 50%);
 }
 
 .gamebox-controls {
@@ -8,4 +8,10 @@
     width: 80%;
     justify-content: space-between;
     margin-top: 3rem;
+}
+
+.cashout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

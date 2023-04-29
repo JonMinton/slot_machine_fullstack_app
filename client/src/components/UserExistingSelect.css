@@ -2,3 +2,7 @@
     background-color: rgba(189, 183, 107, 0.500);
     margin-bottom: 1rem;
 }
+
+.UserExistingSelect>select {
+    padding: 0.4rem 1.2rem;
+}

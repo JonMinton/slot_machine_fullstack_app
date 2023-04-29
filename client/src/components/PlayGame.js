@@ -8,7 +8,7 @@ const PlayGame = ({ handlePlay }) => {
 
     return (
         <div className="PlayGame">
-            <button onClick={handleClick}><strong>Click to play</strong></button>
+            <button onClick={handleClick}><strong>Play!</strong></button>
         </div>
     );
 }

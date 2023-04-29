@@ -1,5 +1,5 @@
 .ShowBalance {
-    background-color: rgba(0, 255, 255, 0.500);
+    background-color: rgb(122, 187, 232);
     border: 2px solid black;
     font-size: 1rem;
     width: 12rem;
@@ -10,4 +10,5 @@
 
 .ShowBalance>span {
     font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
 }

@@ -7,6 +7,8 @@ import PlayGame from '../components/PlayGame';
 import ShowBalance from '../components/ShowBalance';
 import StreakBox from '../components/StreakBox';
 import WheelsDisplay from '../components/WheelsDisplay';
+import CashoutButton from '../components/CashoutButton';
+import CashoutDisplay from '../components/CashoutDisplay';
 import './GameBox.css'
 
 const GameBox = ({ balance, updateBalance }) => {
@@ -22,6 +24,11 @@ const GameBox = ({ balance, updateBalance }) => {
             </div>
 
             <WheelsDisplay />
+            <div className="cashout-container">
+                <CashoutButton />
+                <CashoutDisplay />
+            </div>
+
             {/* 
 
             <StreakBox/>

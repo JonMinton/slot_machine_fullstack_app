@@ -4,4 +4,8 @@
 
 .PlayGame>button {
     height: 100%;
+    padding: 0 1rem;
+    border: 2px red solid;
+    border-radius: 10%;
+    font-size: 1.3rem;
 }
