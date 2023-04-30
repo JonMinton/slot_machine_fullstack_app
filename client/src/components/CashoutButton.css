@@ -1,3 +1,5 @@
-.CashoutButton {
-    background-color: rgba(255, 99, 71, 0.502);
+.CashoutButton>button {
+    padding: 0.6rem 1.8rem;
+    outline: 1px solid red;
+    border: 2px solid yellow;
 }
