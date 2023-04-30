@@ -1,5 +1,5 @@
-import React from 'react';
-// import React, {useEffect, useState} from 'react';
+
+import React, { useEffect, useState } from 'react';
 
 import './UserSelection.css'
 
@@ -8,19 +8,18 @@ import UserNewForm from '../components/UserNewForm';
 
 
 
-const UserSelection = ({users, handleActiveUserSelected, handleAddNewUser, activeUser}) => {
+const UserSelection = ({ users, handleActiveUserSelected, handleAddNewUser, activeUser }) => {
 
-
+    const [newUser, setNewUser] = useState(false)
 
     const handleUserSelect = (id) => {
         console.log(`handleUserSelect called with id ${id}`)
-        if (id === ""){
+        if (id === "") {
             handleActiveUserSelected(null)
         } else {
-            const activeUser = users.filter((user) => 
-            {return(user._id === Number(id))})[0]
+            const activeUser = users.filter((user) => { return (user._id === Number(id)) })[0]
             console.log(activeUser)
-            handleActiveUserSelected(activeUser)    
+            handleActiveUserSelected(activeUser)
         }
     }
 
@@ -31,18 +30,27 @@ const UserSelection = ({users, handleActiveUserSelected, handleAddNewUser, activ
         handleActiveUserSelected(newUser)
     }
 
+    const handleNewUser = (val) => {
+        setNewUser(val)
+    }
+
     return (
-        <div className = "UserSelection">
-            <h2>UserSelection</h2>
-            <p>There are {users.length} users</p>
-            <UserExistingSelect 
-                users = {users} 
-                handleUserSelect={handleUserSelect} 
-                activeUser={activeUser}    
+        <div className="UserSelection">
+            <h2>{activeUser ? `Player: ${activeUser.name}` : 'Roll up Roll up!'}</h2>
+            {/* <p>There are {users.length} users</p> */}
+            <UserExistingSelect
+                users={users}
+                handleUserSelect={handleUserSelect}
+                acceptNewUser={handleNewUser}
+                activeUser={activeUser}
             />
-            <UserNewForm handleUserAdd={handleUserAdd}/>
+            <UserNewForm
+                handleUserAdd={handleUserAdd}
+                newUser={newUser}
+                handleNewUser={handleNewUser}
+            />
         </div>
-      );
+    );
 }
- 
+
 export default UserSelection;

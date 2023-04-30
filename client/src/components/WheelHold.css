@@ -1,3 +1,10 @@
 .WheelHold {
     background-color: rgba(71, 61, 139, 0.500);
 }
+
+.WheelHold>button {
+    margin: auto;
+    padding: 0.4rem 1.2rem;
+    border: 2px solid green;
+    border-radius: 10%;
+}

@@ -5,9 +5,9 @@ import './WheelHold.css'
 const WheelHold = () => {
     return (
         <div className="WheelHold">
-            <h4>WheelHold</h4>
+            <button>Hold</button>
         </div>
-      );
+    );
 }
- 
+
 export default WheelHold;

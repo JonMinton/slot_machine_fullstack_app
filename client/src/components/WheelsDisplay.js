@@ -4,16 +4,15 @@ import './WheelsDisplay.css'
 
 const WheelsDisplay = () => {
 
-    const wheelSet = ['Cherry', 'Banana', 'Orange', 'Apple']
+    const wheelSet = [' 🍒', '🍌', '🍑', '🍆']
 
     return (
         <div className="WheelsDisplay">
-            <h2>WheelsDisplay</h2>
-            <WheelBox key = {1} symbols = {wheelSet}/>
-            <WheelBox key = {2} symbols = {wheelSet}/>
-            <WheelBox key = {3} symbols = {wheelSet}/>
+            <WheelBox key={1} symbols={wheelSet} />
+            <WheelBox key={2} symbols={wheelSet} />
+            <WheelBox key={3} symbols={wheelSet} />
         </div>
-      );
+    );
 }
- 
+
 export default WheelsDisplay;

@@ -1,13 +1,15 @@
 import React from 'react';
 import './ShowBalance.css'
 
-const ShowBalance = ({children}) => {
+const ShowBalance = ({ children }) => {
     return (
-        <div className = 'ShowBalance'>
-            <p><b>Balance</b>: £{Math.round(children * 100) / 100}</p>
+        <div className='ShowBalance'>
+            <span>£{(Math.round(children * 100) / 100).toFixed(2)} </span>
         </div>
 
-      );
+    );
 }
- 
+
 export default ShowBalance;
+
+//{Math.round(children * 100) / 100}
