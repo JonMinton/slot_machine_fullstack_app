@@ -1,3 +1,4 @@
+import React from 'react';
 import './CashoutDisplay.css'
 
 const CashoutDisplay = () => {

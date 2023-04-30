@@ -1,3 +1,4 @@
+import React from 'react';
 import WheelBox from './WheelBox';
 import './WheelsDisplay.css'
 

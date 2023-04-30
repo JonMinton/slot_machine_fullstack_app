@@ -1,3 +1,4 @@
+import React from 'react';
 import './Wheel.css'
 
 const Wheel = ({ symbols, holdIt, previous }) => {

@@ -1,3 +1,4 @@
+import React from 'react';
 import './PlayGame.css'
 
 const PlayGame = ({ handlePlay }) => {

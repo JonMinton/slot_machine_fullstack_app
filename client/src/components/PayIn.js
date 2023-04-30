@@ -1,3 +1,4 @@
+import React from 'react';
 import './PayIn.css'
 
 const PayIn = ({ handlePayIn }) => {

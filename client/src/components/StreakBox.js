@@ -1,3 +1,4 @@
+import React from 'react';
 import './StreakBox.css'
 
 const StreakBox = () => {

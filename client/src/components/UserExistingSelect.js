@@ -1,3 +1,4 @@
+import React from 'react';
 import './UserExistingSelect.css'
 
 const UserExistingSelect = ({ users, handleUserSelect, activeUser, acceptNewUser }) => {
