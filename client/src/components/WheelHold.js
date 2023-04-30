@@ -2,10 +2,16 @@ import React from 'react';
 import './WheelHold.css'
 
 
-const WheelHold = () => {
+const WheelHold = ({hold, toggleHold}) => {
+
+    const handleClick = () => {
+        console.log("WheelHold toggled")
+        toggleHold()
+    }
+
     return (
         <div className="WheelHold">
-            <button>Hold</button>
+            {hold ? <button onClick = {handleClick}>Unhold</button> : <button onClick={handleClick}>Hold</button>}
         </div>
     );
 }

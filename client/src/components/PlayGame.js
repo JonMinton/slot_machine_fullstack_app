@@ -4,7 +4,7 @@ import './PlayGame.css'
 const PlayGame = ({ handlePlay }) => {
 
     const handleClick = () => {
-        handlePlay(-0.10)
+        handlePlay()
     }
 
     return (
