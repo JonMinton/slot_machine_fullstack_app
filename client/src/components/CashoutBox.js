@@ -1,5 +1,5 @@
 
-
+import React from 'react';
 import './CashoutBox.css'
 import CashoutButton from './CashoutButton';
 import CashoutDisplay from './CashoutDisplay';

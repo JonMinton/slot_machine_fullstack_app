@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { useEffect, useState } from 'react';
 import AdminBox from '../components/AdminBox';
 import CashoutBox from '../components/CashoutBox';

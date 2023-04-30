@@ -1,3 +1,4 @@
+import React from 'react';
 import './WheelBox.css'
 import { useState } from 'react';
 

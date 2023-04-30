@@ -1,3 +1,4 @@
+import React from 'react';
 import './ShowBalance.css'
 
 const ShowBalance = ({children}) => {
