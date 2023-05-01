@@ -6,25 +6,25 @@ import RulesDisplay from './components/RulesDisplay';
 import GameBox from './containers/GameBox';
 import UserSelection from './containers/UserSelection';
 import ImageHolder from './components/ImageHolder';
+import { getUsers, postUser } from './UserService';
 
 
 const seedUsers = [
-    {
-        _id: Math.floor(Math.random() * (10 ** 8)),
-        name: "Alice",
-        balance: 0.00
-    },
-    {
-        _id: Math.floor(Math.random() * (10 ** 8)),
-        name: "Bob",
-        balance: 0.00
-    },
-    {
-        _id: Math.floor(Math.random() * (10 ** 8)),
-        name: "Charlie",
-        balance: 0.00
-    }
-
+    // {
+    //     _id: Math.floor(Math.random() * (10 ** 8)),
+    //     name: "Alice",
+    //     balance: 0.00
+    // },
+    // {
+    //     _id: Math.floor(Math.random() * (10 ** 8)),
+    //     name: "Bob",
+    //     balance: 0.00
+    // },
+    // {
+    //     _id: Math.floor(Math.random() * (10 ** 8)),
+    //     name: "Charlie",
+    //     balance: 0.00
+    // }
 ]
 
 function App() {
@@ -34,13 +34,19 @@ function App() {
     const [users, setUsers] = useState([])
     const [cards, setCards] = useState([])
 
-    useEffect(() => {
-        setUsers(seedUsers)
-    }, [])
+    // useEffect(() => {
+    //     setUsers(seedUsers)
+    // }, [])
 
     useEffect(() => {
         getCardAPI()
     }, [])
+
+    useEffect(() => {
+      getUsers().then(data => {
+        setUsers(data)
+      })
+  }, [])
 
     const getCardAPI = () => {
         fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=52')
@@ -85,9 +91,11 @@ function App() {
 
     const handleAddNewUser = (newUser) => {
         console.log("handleAddNewUser called")
+        const newUserWithId = postUser(newUser)  
         let tempUsers = users
-        tempUsers.push(newUser)
+        tempUsers.push(newUserWithId)
         setUsers(tempUsers)
+        
     }
 
     return (

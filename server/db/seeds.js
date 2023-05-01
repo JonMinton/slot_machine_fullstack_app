@@ -5,8 +5,7 @@ db.dropDatabase();
 db.users.insertMany([
     {
         "name": "Tim Bart",
-        "initial balance": 0.00,
-        "playing": false,
+        "balance": 0.00,
         "transactions": [
             {
             "game_number": 300422,
@@ -17,42 +16,39 @@ db.users.insertMany([
     },
     {
         "name": "Nina Sampson",
-        "initial balance": 0.00,
-        "playing": false,
+        "balance": 0.00,
     },
     {
         "name": "Aubrey John",
-        "initial balance": 0.00,
-        "playing": false,
+        "balance": 0.00,
     },
     {
         "name": "Matilda Beagle",
-        "initial balance": 0.00,
-        "playing": false,
+        "balance": 0.00,
     }
 ])
 
-db.wheelsets.insertMany([
-    {
-    "fruit": [{
-            "symbol_name": "banana",
-            "value": 8,
-            "image_url": "urlhere"
-            },
-            {
-            "symbol_name": "aubergine",
-            "value": 10,
-            "image_url": "urlhere" 
-            },
-            {
-            "symbol_name": "green apple",
-            "value": 4,
-            "image_url": "urlhere"
-            },
-            {
-            "symbol_name": "peach",
-            "value": 6,
-            "image_url": "urlhere"
-            }]
-    }
-])
+// db.wheelsets.insertMany([
+//     {
+//     "fruit": [{
+//             "symbol_name": "banana",
+//             "value": 8,
+//             "image_url": "urlhere"
+//             },
+//             {
+//             "symbol_name": "aubergine",
+//             "value": 10,
+//             "image_url": "urlhere" 
+//             },
+//             {
+//             "symbol_name": "green apple",
+//             "value": 4,
+//             "image_url": "urlhere"
+//             },
+//             {
+//             "symbol_name": "peach",
+//             "value": 6,
+//             "image_url": "urlhere"
+//             }]
+//     }
+// ])

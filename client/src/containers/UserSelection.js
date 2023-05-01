@@ -17,7 +17,7 @@ const UserSelection = ({ users, handleActiveUserSelected, handleAddNewUser, acti
         if (id === "") {
             handleActiveUserSelected(null)
         } else {
-            const activeUser = users.filter((user) => { return (user._id === Number(id)) })[0]
+            const activeUser = users.filter((user) => { return (user._id === id) })[0]
             console.log(activeUser)
             handleActiveUserSelected(activeUser)
         }

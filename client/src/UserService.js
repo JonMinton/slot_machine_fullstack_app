@@ -1,12 +1,9 @@
 const baseURL = 'http://localhost:9000/api/users/'
-const imageAPI = 'https://pokeapi.co/api/v2/pokemon'
 
-export const getImage = () => {
-    return fetch(imageAPI)
-        .then(res => res.json())
-}
-
-
+// export const getImage = () => {
+//     return fetch(imageAPI)
+//         .then(res => res.json())
+// }
 
 export const getUsers = () => {
     return fetch(baseURL)

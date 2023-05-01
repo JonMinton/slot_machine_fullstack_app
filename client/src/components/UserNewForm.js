@@ -22,7 +22,6 @@ const UserNewForm = ({ handleUserAdd, newUser, handleNewUser }) => {
 
         handleUserAdd(
             {
-                _id: Math.floor(Math.random() * (10 ** 8)), // This needs to be changed when server set up!
                 name: userName,
                 balance: Number(userBalance)
             }
