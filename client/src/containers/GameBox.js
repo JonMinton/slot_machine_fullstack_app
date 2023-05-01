@@ -11,37 +11,24 @@ import CashoutButton from '../components/CashoutButton';
 import CashoutDisplay from '../components/CashoutDisplay';
 import './GameBox.css'
 
-const GameBox = ({ balance, updateBalance }) => {
+const GameBox = ({ balance, updateBalance, cards }) => {
 
-    const [wheelSet, setWheelSet] = useState(['🍒', '🍌', '🍑', '🍆'])
+    const [wheelSet, setWheelSet] = useState(
+        cards.map((card) => {
+            return card.code
+        })
+    )
 
     const [wheelSetSchedules, setWheelSetSchedules] = useState(
-        [
-            {
-                _id: 0,
-                name: "Cherry",
-                glyph: '🍒',
-                reward: 1.00
-            },
-            {
-                _id: 1,
-                name: "Banana",
-                glyph: '🍌',
-                reward: 0.50
-            },
-            {
-                _id: 2,
-                name: "Peach",
-                glyph: '🍑',
-                reward: 0.60
-            },
-            {
-                _id: 3,
-                name: "Aubergine",
-                glyph: '🍆',
-                reward: 0.10
+        cards.map((card, index) => {
+            return {
+                _id: index,
+                code: card.code,
+                imageURL: card.images.svg,
+                readableName: `${card.value} of ${card.suit}`,
+                reward: 1
             }
-        ]
+        })
     )
 
 
@@ -82,9 +69,10 @@ const GameBox = ({ balance, updateBalance }) => {
         const winningSymbol = wheelSymbols[0]
 
         // Look up payout for symbol
-        const activeSymbolPack = wheelSetSchedules.find(sym => sym.glyph === winningSymbol)
+        const activeSymbolPack = wheelSetSchedules.find(sym => sym.code === winningSymbol)
         const rewardAmount = activeSymbolPack.reward
-        console.log(`rewardAmount is ${rewardAmount}`)
+        console.log('pay reward triggered')
+        // console.log(`rewardAmount is ${rewardAmount}`)
         // increment account with this payout 
         updateBalance(rewardAmount)    
     }
@@ -107,7 +95,6 @@ const GameBox = ({ balance, updateBalance }) => {
         if (winStreakCounter !== 0) {
             setWinStreakCounter(0)
         }
-
     }
 
     const sampleOne = (arr) => {
@@ -158,21 +145,19 @@ const GameBox = ({ balance, updateBalance }) => {
                 updateWheelSymbols = {updateWheelSymbols}
                 holdStatuses = {holdStatuses}
                 updateHoldStatuses = {updateHoldStatuses}
+                wheelSetSchedules = {wheelSetSchedules}
             />
             <StreakBox 
                 winStreak={winStreakCounter}
                 loseStreak = {loseStreakCounter}
             />
-            {/* <div className="cashout-container">
+            <div className="cashout-container">
                 <CashoutButton />
                 <CashoutDisplay />
-            </div> */}
-
-            {/* 
-
+            </div>
             
             <CashoutBox/>
-            <AdminBox/> */}
+            <AdminBox/>
         </div>
     );
 }

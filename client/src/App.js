@@ -5,6 +5,7 @@ import RulesDisplay from './components/RulesDisplay';
 
 import GameBox from './containers/GameBox';
 import UserSelection from './containers/UserSelection';
+import ImageHolder from './components/ImageHolder';
 
 
 const seedUsers = [
@@ -53,14 +54,6 @@ function App() {
             })
         })
         .then(data => setCards(data))
-
-
-
-
-        // .then(data => setCards(data))
-        
-    
-
       }
 
 
@@ -100,8 +93,9 @@ function App() {
     return (
         <div className="App">
             <UserSelection users={users} handleActiveUserSelected={handleActiveUserSelected} handleAddNewUser={handleAddNewUser} activeUser={activeUser} />
-            {activeUser && <GameBox balance={activeUser.balance} updateBalance={updateBalance} />}
+            {activeUser && <GameBox balance={activeUser.balance} updateBalance={updateBalance} cards={cards} />}
             {activeUser && <RulesDisplay />}
+            {cards && <ImageHolder cards={cards}/>}
         </div>
     );
 }
