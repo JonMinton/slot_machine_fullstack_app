@@ -13,7 +13,38 @@ import './GameBox.css'
 
 const GameBox = ({ balance, updateBalance }) => {
 
-    const [wheelSet, setWheelSet] = useState([' 🍒', '🍌', '🍑', '🍆'])
+    const [wheelSet, setWheelSet] = useState(['🍒', '🍌', '🍑', '🍆'])
+
+    const [wheelSetSchedules, setWheelSetSchedules] = useState(
+        [
+            {
+                _id: 0,
+                name: "Cherry",
+                glyph: '🍒',
+                reward: 1.00
+            },
+            {
+                _id: 1,
+                name: "Banana",
+                glyph: '🍌',
+                reward: 0.50
+            },
+            {
+                _id: 2,
+                name: "Peach",
+                glyph: '🍑',
+                reward: 0.60
+            },
+            {
+                _id: 3,
+                name: "Aubergine",
+                glyph: '🍆',
+                reward: 0.10
+            }
+        ]
+    )
+
+
     const [costPerGame, setCostPerGame] = useState(0.10)
 
     const [gamePlayedCounter, setGamePlayedCounter] = useState(0)
@@ -37,6 +68,7 @@ const GameBox = ({ balance, updateBalance }) => {
         if (checkAllEqual(wheelSymbols)) {
             console.log("all symbols the same: Win!")
             incrementWinStreak()
+            payReward()
 
         } else {
             console.log("all symbols not the same: Lose!")
@@ -44,6 +76,20 @@ const GameBox = ({ balance, updateBalance }) => {
 
         }
     }, [wheelSymbols])
+
+    const payReward = () => {
+        // Work out symbol on which streak occurs
+        const winningSymbol = wheelSymbols[0]
+
+        // Look up payout for symbol
+        const activeSymbolPack = wheelSetSchedules.find(sym => sym.glyph === winningSymbol)
+        const rewardAmount = activeSymbolPack.reward
+        console.log(`rewardAmount is ${rewardAmount}`)
+        // increment account with this payout 
+        let temp = balance
+        temp = temp + rewardAmount
+        updateBalance(temp)    
+    }
 
     const incrementWinStreak = () => {
         console.log("incrementWinStreak called")
