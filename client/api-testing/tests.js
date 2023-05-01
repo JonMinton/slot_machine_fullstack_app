@@ -21,19 +21,7 @@ const flagAPI = () => {
   .then(data => console.log(data))
 }
 
-// const options = {
-//     method: 'GET',
-//     headers: {
-//       accept: 'application/json',
-//       Authorization: 'Bearer 6fOT4pecrk5OgLT1BqRxPfLk5R9XsezXlGScvk4TtI0='
-//     }
-//   };
-  
-// fetch('https://api.brandfetch.io/v2/brands/brandfetch.com', options)
-// .then(response => response.json())
-// .then(response => console.log(response))
-// .catch(err => console.error(err));
 
 // emojiAPI() // Returns array of objects, map and call data.character to get image
-// cardAPI() // Returns array of objects, map and call data.image to get image
+cardAPI() // Returns array of objects, map and call data.image to get image
 // flagAPI() // Returns array of objects, map and call data.png or svg to get image
