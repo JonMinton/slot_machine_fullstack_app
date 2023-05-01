@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import WheelBox from './WheelBox';
 import './WheelsDisplay.css'
 
-const WheelsDisplay = ({wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses, updateHoldStatuses}) => {
+const WheelsDisplay = ({wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses, updateHoldStatuses, wheelSetSchedules}) => {
 
 
     const updateHoldStatus = (id) => {
@@ -19,10 +19,11 @@ const WheelsDisplay = ({wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses
             <WheelBox 
                 key={1} 
                 wheelId = {0}
-                symbols={wheelSet} 
-                symbol= {wheelSymbols[0]} 
+                symbols={wheelSet}
+                symbol= {wheelSymbols[0]}
                 holdStatus={holdStatuses[0]}
-                updateHoldStatus={updateHoldStatus}            
+                updateHoldStatus={updateHoldStatus}
+                wheelSetSchedules={wheelSetSchedules}
             />
             <WheelBox 
                 key={2} 
@@ -31,6 +32,7 @@ const WheelsDisplay = ({wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses
                 symbol = {wheelSymbols[1]} 
                 holdStatus={holdStatuses[1]}
                 updateHoldStatus={updateHoldStatus}
+                wheelSetSchedules={wheelSetSchedules}
             />
             <WheelBox 
                 key={3} 
@@ -39,6 +41,7 @@ const WheelsDisplay = ({wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses
                 symbol = {wheelSymbols[2]} 
                 holdStatus={holdStatuses[2]}
                 updateHoldStatus={updateHoldStatus}
+                wheelSetSchedules={wheelSetSchedules}
             />
         </div>
     );
