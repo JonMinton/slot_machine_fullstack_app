@@ -86,9 +86,7 @@ const GameBox = ({ balance, updateBalance }) => {
         const rewardAmount = activeSymbolPack.reward
         console.log(`rewardAmount is ${rewardAmount}`)
         // increment account with this payout 
-        let temp = balance
-        temp = temp + rewardAmount
-        updateBalance(temp)    
+        updateBalance(rewardAmount)    
     }
 
     const incrementWinStreak = () => {
