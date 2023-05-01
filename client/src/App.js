@@ -31,10 +31,38 @@ function App() {
     const [activeUser, setActiveUser] = useState(null)
 
     const [users, setUsers] = useState([])
+    const [cards, setCards] = useState([])
 
     useEffect(() => {
         setUsers(seedUsers)
     }, [])
+
+    useEffect(() => {
+        getCardAPI()
+    }, [])
+
+    const getCardAPI = () => {
+        fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=52')
+        .then(res => res.json())
+        // .then(res => console.log(res))
+        .then(data => data.cards)
+        // .then(res => console.log(res))
+        .then(data => {
+            return data.filter((c) => {
+                return c.value === "ACE"
+            })
+        })
+        .then(data => setCards(data))
+
+
+
+
+        // .then(data => setCards(data))
+        
+    
+
+      }
+
 
     useEffect(() => {
         console.log("Change to active user state detected")
