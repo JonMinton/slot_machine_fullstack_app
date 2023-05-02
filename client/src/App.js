@@ -6,26 +6,8 @@ import RulesDisplay from './components/RulesDisplay';
 import GameBox from './containers/GameBox';
 import UserSelection from './containers/UserSelection';
 import ImageHolder from './components/ImageHolder';
-import { getUsers, postUser } from './UserService';
+import { getUsers, postUser, putUser } from './UserService';
 
-
-// const seedUsers = [
-//     {
-//         _id: Math.floor(Math.random() * (10 ** 8)),
-//         name: "Alice",
-//         balance: 0.00
-//     },
-//     {
-//         _id: Math.floor(Math.random() * (10 ** 8)),
-//         name: "Bob",
-//         balance: 0.00
-//     },
-//     {
-//         _id: Math.floor(Math.random() * (10 ** 8)),
-//         name: "Charlie",
-//         balance: 0.00
-//     }
-// ]
 
 function App() {
 
@@ -33,10 +15,6 @@ function App() {
 
     const [users, setUsers] = useState([])
     const [cards, setCards] = useState([])
-
-    // useEffect(() => {
-    //     setUsers(seedUsers)
-    // }, [])
 
     useEffect(() => {
         getCardAPI()
@@ -46,7 +24,7 @@ function App() {
       getUsers().then(data => {
         setUsers(data)
       })
-  }, [users])
+  }, [])
 
     const getCardAPI = () => {
         fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=52')
@@ -82,7 +60,17 @@ function App() {
         console.log(`updateBalance called for amount ${amt}`)
         const tempUsers = users.map(usr => {
             if (usr._id === activeUser._id) {
-                usr.balance += amt
+                const roundedAmount = Math.round(amt * 100) / 100
+                const roundedBalance = Math.round(usr.balance * 100) / 100
+                 // update db balance
+                putUser(activeUser._id, {
+                    balance: roundedBalance + roundedAmount
+                })
+                // update client-side
+                usr.balance = roundedBalance + roundedAmount
+                
+           
+            
             }
             return usr
         })
