@@ -27,12 +27,15 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel }) => {
     }, [spinningWheel]);
 
     function spin() {
+        console.dir(wheelSides.current[0])
         overlay.current.style.opacity = 0
         wheelSides.current.forEach((wSide, i) => {
-
-            // adding an image tag with src of the url taken from schedules
-            wSide.innerHTML = <img src={wheelSetSchedules[i].imageURL} key={i} alt={wheelSetSchedules[i].readableName} />
-            wSide.style.animationDelay = `${i * 1000}ms`
+            // Set the background image and style properties of the div
+            wSide.style.backgroundImage = `url(${wheelSetSchedules[i].imageURL})`;
+            wSide.style.backgroundSize = "cover";
+            wSide.style.backgroundPosition = "center";
+            wSide.style.backgroundRepeat = "no-repeat";
+            wSide.style.animationDelay = `${i * 1000}ms`;
         })
         // state of each image set to true, so animation begins
         setSpinning([true, true, true, true])
@@ -43,7 +46,7 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel }) => {
     // put wrong symbols in an array, loop over and remove one at a time, with a delay between
     const stopOnSymbol = function () {
         let wrongSymbols = wheelSides.current.filter(
-            (wSide, i) => wSide.getAttribute('src') !== chosenURL && spinning[i]
+            (wSide, i) => wSide.style.backgroundImage !== `url("${chosenURL}")` && spinning[i]
         );
 
         const removeSpinning = (index) => {
@@ -64,15 +67,21 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel }) => {
         // when all wrong options removed, stop animation on correct symbol, and keep it vidsible.
         setTimeout(() => {
             let winnerIndex = wheelSides.current.findIndex(
-                (wSide) => wSide.getAttribute('src') === chosenURL
+                (wSide) => wSide.style.backgroundImage === `url("${chosenURL}")`
             );
             setSpinning((prevState) =>
                 prevState.map((val, index) => (index === winnerIndex ? false : val))
             );
-            setStopped((prevState) =>
-                prevState.map((val, index) => (index === winnerIndex ? true : val))
-            );
         }, 2400);
+
+        setTimeout(() => {
+            let winnerIndex = wheelSides.current.findIndex(
+                (wSide) => wSide.style.backgroundImage === `url("${chosenURL}")`
+            );
+            setStopped((prevState) =>
+                prevState.map((val, index) => (index === winnerIndex ? false : true))
+            );
+        }, 2500);
     };
 
     // below we map over symbols to create each 'wheel-side' (i was struggling for names for that one... :-)

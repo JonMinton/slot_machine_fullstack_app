@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import WheelBox from './WheelBox';
 import './WheelsDisplay.css'
 
-const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses, updateHoldStatuses, wheelSetSchedules }) => {
+const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses, updateHoldStatuses, wheelSetSchedules, spinWheels }) => {
 
 
     const updateHoldStatus = (id) => {
@@ -22,12 +22,15 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
     // const symbols = ["🍑", "🍌", "🍆", "🍏"]
     // // let chosenSymbol = "🍑"
 
-    const spinWheels = () => {
+    const spinTheWheels = () => {
         setW1Spinning(true)
         setTimeout(() => setW2Spinning(true), 500)
         setTimeout(() => setW3Spinning(true), 1000)
     }
 
+    useEffect(() => {
+        spinTheWheels()
+    }, [spinWheels])
 
     return (
         <div className="WheelsDisplay">
@@ -49,7 +52,7 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
                 holdStatus={holdStatuses[1]}
                 updateHoldStatus={updateHoldStatus}
                 wheelSetSchedules={wheelSetSchedules}
-                spinning={w1Spinning}
+                spinning={w2Spinning}
 
             />
             <WheelBox
@@ -60,11 +63,11 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
                 holdStatus={holdStatuses[2]}
                 updateHoldStatus={updateHoldStatus}
                 wheelSetSchedules={wheelSetSchedules}
-                spinning={w1Spinning}
+                spinning={w3Spinning}
 
             />
 
-            <button onClick={spinWheels}>SPINSPIN</button>
+            {/* <button onClick={spinWheels}>SPINSPIN</button> */}
         </div>
     );
 }
