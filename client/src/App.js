@@ -46,7 +46,7 @@ function App() {
       getUsers().then(data => {
         setUsers(data)
       })
-  }, [])
+  }, [users])
 
     const getCardAPI = () => {
         fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=52')
@@ -91,10 +91,14 @@ function App() {
 
     const handleAddNewUser = (newUser) => {
         console.log("handleAddNewUser called")
-        const newUserWithId = postUser(newUser)  
-        let tempUsers = users
-        tempUsers.push(newUserWithId)
-        setUsers(tempUsers)
+        postUser(newUser)
+        .then(res => {
+            handleActiveUserSelected(res)
+
+            let tempUsers = users
+            tempUsers.push(res)
+            setUsers(tempUsers)
+        })
         
     }
 
