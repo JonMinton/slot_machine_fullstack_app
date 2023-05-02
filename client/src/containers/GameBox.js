@@ -51,7 +51,9 @@ const GameBox = ({ balance, updateBalance, cards }) => {
     useEffect( () => {
         console.log("Change in wheelSymbols state detected")
         const checkAllEqual = arr => arr.every(v => v === arr[0])
+        console.log(wheelSymbols)
 
+        if (gamePlayedCounter > 0) {
         if (checkAllEqual(wheelSymbols)) {
             console.log("all symbols the same: Win!")
             incrementWinStreak()
@@ -60,9 +62,9 @@ const GameBox = ({ balance, updateBalance, cards }) => {
         } else {
             console.log("all symbols not the same: Lose!")
             incrementLoseStreak()
-
         }
-    }, [wheelSymbols])
+        }
+    }, [gamePlayedCounter])
 
     const payReward = () => {
         // Work out symbol on which streak occurs
@@ -103,6 +105,7 @@ const GameBox = ({ balance, updateBalance, cards }) => {
 
     const handlePlayClicked = () => {
         console.log("handlePlayclicked triggered")
+
         if (balance >= costPerGame) {
             let temp = gamePlayedCounter
             temp = temp + 1

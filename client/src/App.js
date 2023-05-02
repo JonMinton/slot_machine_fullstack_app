@@ -9,23 +9,23 @@ import ImageHolder from './components/ImageHolder';
 import { getUsers, postUser } from './UserService';
 
 
-const seedUsers = [
-    // {
-    //     _id: Math.floor(Math.random() * (10 ** 8)),
-    //     name: "Alice",
-    //     balance: 0.00
-    // },
-    // {
-    //     _id: Math.floor(Math.random() * (10 ** 8)),
-    //     name: "Bob",
-    //     balance: 0.00
-    // },
-    // {
-    //     _id: Math.floor(Math.random() * (10 ** 8)),
-    //     name: "Charlie",
-    //     balance: 0.00
-    // }
-]
+// const seedUsers = [
+//     {
+//         _id: Math.floor(Math.random() * (10 ** 8)),
+//         name: "Alice",
+//         balance: 0.00
+//     },
+//     {
+//         _id: Math.floor(Math.random() * (10 ** 8)),
+//         name: "Bob",
+//         balance: 0.00
+//     },
+//     {
+//         _id: Math.floor(Math.random() * (10 ** 8)),
+//         name: "Charlie",
+//         balance: 0.00
+//     }
+// ]
 
 function App() {
 
