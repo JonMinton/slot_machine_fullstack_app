@@ -182,8 +182,6 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) =
                 <CashoutButton requestCashout={requestCashout} />
                 <CashoutDisplay cashoutBalance={cashoutBalance}/>
             </div>
-            
-            <CashoutBox/>
         </div>
     );
 }
