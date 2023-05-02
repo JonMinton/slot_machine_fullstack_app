@@ -34,18 +34,20 @@ const GameBox = ({ balance, updateBalance, cards }) => {
 
     const [costPerGame, setCostPerGame] = useState(0.10)
 
-    const [gamePlayedCounter, setGamePlayedCounter] = useState(0)
+    const [gamePlayedCounter, setGamePlayedCounter] = useState(-2)
     const [loseStreakCounter, setLoseStreakCounter] = useState(0)
     const [winStreakCounter, setWinStreakCounter] = useState(0)
 
     const [wheelSymbols, setWheelSymbols] = useState([wheelSet[0], wheelSet[0], wheelSet[0]])
     const [holdStatuses, setHoldStatuses] = useState([false, false, false])
+    const [preventHold, setPreventHold] = useState(false)
 
     useEffect( () => {
+        if (gamePlayedCounter >= 0) {
         console.log("gamePlayedCounter change detected")
         updateBalance(-costPerGame)   
         updateWheelSymbols()
-
+        }
     }, [gamePlayedCounter])
 
     useEffect( () => {
@@ -58,13 +60,17 @@ const GameBox = ({ balance, updateBalance, cards }) => {
             console.log("all symbols the same: Win!")
             incrementWinStreak()
             payReward()
+            setPreventHold(true)
+            setHoldStatuses([false, false, false])
 
         } else {
             console.log("all symbols not the same: Lose!")
             incrementLoseStreak()
+            setPreventHold(false)
         }
         }
     }, [gamePlayedCounter])
+
 
     const payReward = () => {
         // Work out symbol on which streak occurs
@@ -76,7 +82,7 @@ const GameBox = ({ balance, updateBalance, cards }) => {
         console.log('pay reward triggered')
         // console.log(`rewardAmount is ${rewardAmount}`)
         // increment account with this payout 
-        updateBalance(rewardAmount)    
+        updateBalance(rewardAmount)  
     }
 
     const incrementWinStreak = () => {
@@ -149,6 +155,7 @@ const GameBox = ({ balance, updateBalance, cards }) => {
                 holdStatuses = {holdStatuses}
                 updateHoldStatuses = {updateHoldStatuses}
                 wheelSetSchedules = {wheelSetSchedules}
+                preventHold = {preventHold}
             />
             <StreakBox 
                 winStreak={winStreakCounter}
