@@ -31,7 +31,6 @@ const UserNewForm = ({ handleUserAdd, newUser, handleNewUser }) => {
         handleNewUser(false)
     }
 
-
     return (
         <div className="UserNewForm">
             <form onSubmit={handleNewUserSubmit}>
