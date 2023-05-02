@@ -15,6 +15,7 @@ function App() {
 
   const [users, setUsers] = useState([])
   const [cards, setCards] = useState([])
+  const [costPerGame, setCostPerGame] = useState(-0.10)
 
   useEffect(() => {
       getCardAPI()
@@ -130,6 +131,11 @@ function App() {
     })
     setUsers(tempUsers)
   }
+
+  const handleChangeCost = (val) => {
+    console.log(`handleChangeCost triggered with amount ${val}`)
+    setCostPerGame(-val)
+  }
     
   const handleBarUser = (usr) => {
     const userId = usr._id
@@ -145,9 +151,9 @@ function App() {
   return (
       <div className="App">
           <UserSelection users={users} handleActiveUserSelected={handleActiveUserSelected} handleAddNewUser={handleAddNewUser} activeUser={activeUser} />
-          {activeUser && <GameBox balance={activeUser.balance} updateBalance={updateBalance} cards={cards} clearBalance={clearBalance}/>}
+          {activeUser && <GameBox balance={activeUser.balance} updateBalance={updateBalance} cards={cards} clearBalance={clearBalance} costPerGame={costPerGame}/>}
           {activeUser && <RulesDisplay />}
-          {users && <AdminBox users={users} handleUserNameChange={handleUserNameChange} handleBarUser={handleBarUser}/>}
+          {users && <AdminBox users={users} handleUserNameChange={handleUserNameChange} handleBarUser={handleBarUser} costPerGame = {costPerGame} handleChangeCost = {handleChangeCost}/>}
       </div>
   );
 }

@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './AdminBox.css'
 
-const AdminBox = ({users, handleUserNameChange, handleBarUser}) => {
+const AdminBox = ({users, handleUserNameChange, handleBarUser, costPerGame, handleChangeCost}) => {
 
     const [selectedUser, setSelectedUser] = useState('')
     const [selectedUserName, setSelectedUserName] = useState('')
+
+    const [playCost, setPlayCost] = useState('')
+
+    useEffect( () => {
+        setPlayCost(-costPerGame)
+    }, [] )
 
 
     useEffect( () => {
@@ -64,6 +70,16 @@ const AdminBox = ({users, handleUserNameChange, handleBarUser}) => {
         </form>
         )
     }
+
+    const handleSubmitChangeCost = (e) => {
+        e.preventDefault()
+        handleChangeCost(playCost)
+    }
+
+    const handlePlayCostChange = (e) => {
+        setPlayCost(e.target.value)
+    }
+
     return (
     <div className="AdminBox">
         <h2>AdminBox</h2>
@@ -72,6 +88,15 @@ const AdminBox = ({users, handleUserNameChange, handleBarUser}) => {
                 {renderUserOptions}
         </select>
         {selectedUser && changeForm()}
+        <br/>
+        <h3>Change cost per play</h3>
+        <form onSubmit={handleSubmitChangeCost}>
+            <label htmlFor="changePlayCost">
+                <input id="changePlayCost" name="changePlayCost" type = "number" value = {playCost} onChange={handlePlayCostChange}/>
+            </label>
+            <button type = 'submit'> Confirm cost change</button>
+        </form>
+        
     </div>  );
 }
  

@@ -10,7 +10,7 @@ import CashoutButton from '../components/CashoutButton';
 import CashoutDisplay from '../components/CashoutDisplay';
 import './GameBox.css'
 
-const GameBox = ({ balance, updateBalance, cards , clearBalance}) => {
+const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) => {
 
     const [wheelSet, setWheelSet] = useState(
         cards.map((card) => {
@@ -31,8 +31,6 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance}) => {
     )
 
 
-    const [costPerGame, setCostPerGame] = useState(0.10)
-
     const [gamePlayedCounter, setGamePlayedCounter] = useState(-2)
     const [loseStreakCounter, setLoseStreakCounter] = useState(0)
     const [winStreakCounter, setWinStreakCounter] = useState(0)
@@ -46,7 +44,7 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance}) => {
     useEffect( () => {
         if (gamePlayedCounter >= 0) {
         console.log("gamePlayedCounter change detected")
-        updateBalance(-costPerGame)   
+        updateBalance(costPerGame)   
         updateWheelSymbols()
         }
     }, [gamePlayedCounter])
