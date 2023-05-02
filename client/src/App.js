@@ -4,9 +4,9 @@ import './App.css';
 import RulesDisplay from './components/RulesDisplay';
 
 import GameBox from './containers/GameBox';
+import AdminBox from './components/AdminBox';
 import UserSelection from './containers/UserSelection';
-import ImageHolder from './components/ImageHolder';
-import { getUsers, postUser, putUser } from './UserService';
+import { getUsers, postUser, putUser, deleteUser } from './UserService';
 
 
 function App() {
@@ -90,12 +90,39 @@ function App() {
         
     }
 
+    const handleUserNameChange = (usr) => {
+      const userId = usr._id
+      const payload = {
+        name: usr.name
+      }
+      putUser(userId , payload)
+
+      let tempUsers = users.map((user) => {
+        if (user._id === userId) {
+          user.name = usr.name
+        }
+        return user
+      })
+      setUsers(tempUsers)
+    }
+    
+    const handleBarUser = (usr) => {
+      const userId = usr._id
+      console.log('User ID is', userId)
+      deleteUser(userId)
+
+      let tempUsers = users.filter((user) => {
+        return (user._id !== userId)
+      })
+      setUsers(tempUsers)
+    }
+
     return (
         <div className="App">
             <UserSelection users={users} handleActiveUserSelected={handleActiveUserSelected} handleAddNewUser={handleAddNewUser} activeUser={activeUser} />
             {activeUser && <GameBox balance={activeUser.balance} updateBalance={updateBalance} cards={cards} />}
             {activeUser && <RulesDisplay />}
-            {cards && <ImageHolder cards={cards}/>}
+            {users && <AdminBox users={users} handleUserNameChange={handleUserNameChange} handleBarUser={handleBarUser}/>}
         </div>
     );
 }

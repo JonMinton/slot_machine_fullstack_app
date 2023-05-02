@@ -44,7 +44,7 @@ export const postUser = (payload) => {
 }
 
 export const deleteUser = (id) => {
-    return fetch(`${baseURL}/${id}`, {
+    return fetch(`${baseURL}${id}`, {
         method: 'DELETE'
     })
 }

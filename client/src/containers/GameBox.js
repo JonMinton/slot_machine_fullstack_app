@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import AdminBox from '../components/AdminBox';
 import CashoutBox from '../components/CashoutBox';
 import PayIn from '../components/PayIn';
 import PlayGame from '../components/PlayGame';
@@ -167,7 +166,6 @@ const GameBox = ({ balance, updateBalance, cards }) => {
             </div>
             
             <CashoutBox/>
-            <AdminBox/>
         </div>
     );
 }
