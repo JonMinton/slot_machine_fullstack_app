@@ -106,7 +106,7 @@ const GameBox = ({ balance, updateBalance, cards }) => {
     const handlePlayClicked = () => {
         console.log("handlePlayclicked triggered")
 
-        if (balance >= costPerGame) {
+        if (balance >= costPerGame/2) {
             let temp = gamePlayedCounter
             temp = temp + 1
             setGamePlayedCounter(temp)    
