@@ -5,7 +5,7 @@
 }
 
 .Rules {
-    background-color: rgb(137, 186, 228);
+    background-color: hsl(254, 50%, 50%);
     text-align: center;
     border: 5px solid rgb(8, 8, 8);
     margin-left: 40px;
@@ -17,14 +17,14 @@
     font-size: 1rem;
     font-family: sans-serif;
     height: 200px;
-    
+
 
 }
 
 .Scoring {
     display: flex;
     flex-direction: column;
-    background-color: rgb(137, 186, 228);
+    background-color: hsl(254, 50%, 50%);
     text-align: center;
     border: 5px solid rgb(8, 8, 8);
     margin-left: 40px;
@@ -37,20 +37,20 @@
     height: 200px;
 }
 
-.Scoring > div {
+.Scoring>div {
     display: flex;
     flex-direction: row;
     align-content: center;
     margin: auto;
-    
-    
+
+
 }
 
-.Scoring > div > p {
+.Scoring>div>p {
     align-content: center;
     margin-left: 30px;
     margin-right: 30px;
     margin-top: 0px;
     margin-bottom: 5px;
-    
+
 }

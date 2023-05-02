@@ -8,7 +8,7 @@ wheelSetSchedules = array of objects linking code to imageURLs
 */
 const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel }) => {
 
-    const [spinning, setSpinning] = useState([true, true, true, true])
+    const [spinning, setSpinning] = useState([false, false, false, false])
     const [stopped, setStopped] = useState([false, false, false, false]);
 
     const wheelSides = useRef([])
@@ -82,6 +82,12 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel }) => {
                 prevState.map((val, index) => (index === winnerIndex ? false : true))
             );
         }, 2500);
+
+        setTimeout(() => {
+            setSpinning(false, false, false, false)
+            setStopped(false, false, false, false)
+            overlay.current.opacity = 1
+        }, 5500)
     };
 
     // below we map over symbols to create each 'wheel-side' (i was struggling for names for that one... :-)

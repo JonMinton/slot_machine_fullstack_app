@@ -41,14 +41,16 @@ const GameBox = ({ balance, updateBalance, cards }) => {
     const [wheelSymbols, setWheelSymbols] = useState([wheelSet[0], wheelSet[0], wheelSet[0]])
     const [holdStatuses, setHoldStatuses] = useState([false, false, false])
 
-    useEffect( () => {
+    const [spinWheels, setSpinWheels] = useState(false)
+
+    useEffect(() => {
         console.log("gamePlayedCounter change detected")
-        updateBalance(-costPerGame)   
+        updateBalance(-costPerGame)
         updateWheelSymbols()
 
     }, [gamePlayedCounter])
 
-    useEffect( () => {
+    useEffect(() => {
         console.log("Change in wheelSymbols state detected")
         const checkAllEqual = arr => arr.every(v => v === arr[0])
 
@@ -74,7 +76,7 @@ const GameBox = ({ balance, updateBalance, cards }) => {
         console.log('pay reward triggered')
         // console.log(`rewardAmount is ${rewardAmount}`)
         // increment account with this payout 
-        updateBalance(rewardAmount)    
+        updateBalance(rewardAmount)
     }
 
     const incrementWinStreak = () => {
@@ -103,10 +105,11 @@ const GameBox = ({ balance, updateBalance, cards }) => {
 
     const handlePlayClicked = () => {
         console.log("handlePlayclicked triggered")
+        setSpinWheels(true)
         if (balance >= costPerGame) {
             let temp = gamePlayedCounter
             temp = temp + 1
-            setGamePlayedCounter(temp)    
+            setGamePlayedCounter(temp)
         }
     }
 
@@ -139,25 +142,26 @@ const GameBox = ({ balance, updateBalance, cards }) => {
                 <PlayGame handlePlay={handlePlayClicked} />
             </div>
 
-            <WheelsDisplay 
-                wheelSet = {wheelSet}
-                wheelSymbols={wheelSymbols} 
-                updateWheelSymbols = {updateWheelSymbols}
-                holdStatuses = {holdStatuses}
-                updateHoldStatuses = {updateHoldStatuses}
-                wheelSetSchedules = {wheelSetSchedules}
+            <WheelsDisplay
+                wheelSet={wheelSet}
+                wheelSymbols={wheelSymbols}
+                updateWheelSymbols={updateWheelSymbols}
+                holdStatuses={holdStatuses}
+                updateHoldStatuses={updateHoldStatuses}
+                wheelSetSchedules={wheelSetSchedules}
+                spinWheels={spinWheels}
             />
-            <StreakBox 
+            <StreakBox
                 winStreak={winStreakCounter}
-                loseStreak = {loseStreakCounter}
+                loseStreak={loseStreakCounter}
             />
             <div className="cashout-container">
                 <CashoutButton />
                 <CashoutDisplay />
             </div>
-            
-            <CashoutBox/>
-            <AdminBox/>
+
+            {/* <CashoutBox/> */}
+            {/* <AdminBox /> */}
         </div>
     );
 }
