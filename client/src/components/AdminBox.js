@@ -49,6 +49,8 @@ const AdminBox = ({users, handleUserNameChange, handleBarUser}) => {
     const handleDeleteClick = () => {
         if(selectedUser) {
             handleBarUser(selectedUser)
+            setSelectedUserName('')
+            setSelectedUser('')
             console.log(`Handle onclick clicked with id ${selectedUser._id}`)
         }
     }
