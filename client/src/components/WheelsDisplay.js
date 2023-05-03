@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import WheelBox from './WheelBox';
 import './WheelsDisplay.css'
 
-const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses, updateHoldStatuses, wheelSetSchedules, spinWheels }) => {
+const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses, updateHoldStatuses,
+    wheelSetSchedules, spinWheels, resetWheels }) => {
 
 
     const updateHoldStatus = (id) => {
@@ -25,7 +26,11 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
     const spinTheWheels = () => {
         setW1Spinning(true)
         setTimeout(() => setW2Spinning(true), 500)
-        setTimeout(() => setW3Spinning(true), 1000)
+        setTimeout(() => {
+            setW3Spinning(true)
+            resetWheels()
+        }, 1000)
+
     }
 
     useEffect(() => {

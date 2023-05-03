@@ -132,6 +132,9 @@ const GameBox = ({ balance, updateBalance, cards }) => {
 
     }
 
+    const resetWheels = () => {
+        setSpinWheels(false)
+    }
 
     return (
         <div className="GameBox">
@@ -150,6 +153,7 @@ const GameBox = ({ balance, updateBalance, cards }) => {
                 updateHoldStatuses={updateHoldStatuses}
                 wheelSetSchedules={wheelSetSchedules}
                 spinWheels={spinWheels}
+                resetWheels={resetWheels}
             />
             <StreakBox
                 winStreak={winStreakCounter}

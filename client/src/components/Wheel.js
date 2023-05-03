@@ -84,10 +84,10 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel }) => {
         }, 2500);
 
         setTimeout(() => {
-            setSpinning(false, false, false, false)
-            setStopped(false, false, false, false)
-            overlay.current.opacity = 1
-        }, 5500)
+            setSpinning(prevState => prevState.map(() => false));
+            setStopped(prevState => prevState.map(() => false));
+            overlay.current.style.opacity = 1;
+        }, 5500);
     };
 
     // below we map over symbols to create each 'wheel-side' (i was struggling for names for that one... :-)
