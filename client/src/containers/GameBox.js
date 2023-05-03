@@ -1,6 +1,9 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import CashoutBox from '../components/CashoutBox';
+import Sound from 'react-sound'
+import useSound from 'use-sound';
+import cashoutsuccesfull from '../sounds/cashoutsuccesfull.wav';
 import PayIn from '../components/PayIn';
 import PlayGame from '../components/PlayGame';
 import ShowBalance from '../components/ShowBalance';
@@ -144,6 +147,7 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) =
         const randomNumber = Math.random()
 
         if (randomNumber < 0.60) {
+            useSound(cashoutsuccesfull)
             // Make a nice paying cash out noise here 
             setCashoutBalance(balance)
             clearBalance()
