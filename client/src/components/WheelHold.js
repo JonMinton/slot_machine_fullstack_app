@@ -13,7 +13,7 @@ const WheelHold = ({hold, toggleHold, preventHold}) => {
 
     return (
         <div className="WheelHold">
-            {hold ? <button onClick = {handleClick}>Unhold</button> : <button onClick={handleClick} >Hold</button>}
+            {hold ? <button className="ButtonOn" onClick = {handleClick}>Hold</button> : <button className="ButtonOff" onClick={handleClick} >Hold</button>}
         </div>
     );
 }

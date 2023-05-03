@@ -1,36 +1,4 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@JonMinton 
-JonMinton
-/
-slot_machine_fullstack_app
-Public
-Fork your own copy of JonMinton/slot_machine_fullstack_app
-Code
-Issues
-Pull requests
-Actions
-Projects
-1
-Wiki
-Security
-Insights
-Settings
-Beta Try the new code view
-slot_machine_fullstack_app/client/src/components/Wheel.css
-@JonMinton
-JonMinton Fixed image positioning
-Latest commit 185b11d 4 hours ago
- History
- 1 contributor
-103 lines (89 sloc)  1.79 KB
- 
+
 
 .wheel-container {
     position: relative;
