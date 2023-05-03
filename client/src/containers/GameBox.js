@@ -41,15 +41,25 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) =
 
     const [cashoutBalance, setCashoutBalance] = useState(0)
 
-    useEffect( () => {
+    const [spinWheels, setSpinWheels] = useState(false)
+
+    const startAnimation = () => {
+        setSpinWheels(true)
+    }
+    const resetAnimation = () => {
+        setSpinWheels(false)
+    }
+
+    useEffect(() => {
         if (gamePlayedCounter >= 0) {
         console.log("gamePlayedCounter change detected")
-        updateBalance(costPerGame)   
+        updateBalance(costPerGame) 
+
         updateWheelSymbols()
         }
     }, [gamePlayedCounter])
 
-    useEffect( () => {
+    useEffect(() => {
         console.log("Change in wheelSymbols state detected")
         const checkAllEqual = arr => arr.every(v => v === arr[0])
         console.log(wheelSymbols)
@@ -81,7 +91,8 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) =
         console.log('pay reward triggered')
         // console.log(`rewardAmount is ${rewardAmount}`)
         // increment account with this payout 
-        updateBalance(rewardAmount)  
+        updateBalance(rewardAmount)
+
     }
 
     const incrementWinStreak = () => {
@@ -110,11 +121,11 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) =
 
     const handlePlayClicked = () => {
         console.log("handlePlayclicked triggered")
-
-        if (balance >= costPerGame/2) {
+        startAnimation()
+        if (balance >= costPerGame /2) {
             let temp = gamePlayedCounter
             temp = temp + 1
-            setGamePlayedCounter(temp)    
+            setGamePlayedCounter(temp)
         }
     }
 
@@ -152,9 +163,11 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) =
             // Make a crunchy broken-sounding noise here 
             console.log("Cashout doesn't pay out")
         }
-
     }
-
+    
+    const resetWheels = () => {
+        setSpinWheels(false)
+    }
 
     return (
         <div className="GameBox">
@@ -165,23 +178,28 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) =
                 <PlayGame handlePlay={handlePlayClicked} />
             </div>
 
-            <WheelsDisplay 
-                wheelSet = {wheelSet}
-                wheelSymbols={wheelSymbols} 
-                updateWheelSymbols = {updateWheelSymbols}
-                holdStatuses = {holdStatuses}
-                updateHoldStatuses = {updateHoldStatuses}
-                wheelSetSchedules = {wheelSetSchedules}
+            <WheelsDisplay
+                wheelSet={wheelSet}
+                wheelSymbols={wheelSymbols}
+                updateWheelSymbols={updateWheelSymbols}
+                holdStatuses={holdStatuses}
+                updateHoldStatuses={updateHoldStatuses}
+                wheelSetSchedules={wheelSetSchedules}
+                spinWheels={spinWheels}
+                resetAnimation={resetAnimation}
+                resetWheels={resetWheels}//prob dont need this
                 preventHold = {preventHold}
             />
-            <StreakBox 
+            <StreakBox
                 winStreak={winStreakCounter}
-                loseStreak = {loseStreakCounter}
+                loseStreak={loseStreakCounter}
             />
             <div className="cashout-container">
                 <CashoutButton requestCashout={requestCashout} />
                 <CashoutDisplay cashoutBalance={cashoutBalance}/>
             </div>
+            {/* <CashoutBox/> */}
+            {/* <AdminBox /> */}
         </div>
     );
 }

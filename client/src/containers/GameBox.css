@@ -1,5 +1,9 @@
 .GameBox {
-    background-color: hsl(182, 50%, 50%);
+    position: relative;
+    background-color: hsla(254, 50%, 50%, 0.502);
+    display: flex;
+    flex-direction: column;
+    z-index: 9;
 }
 
 .gamebox-controls {

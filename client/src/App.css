@@ -8,8 +8,8 @@
 .App>* {
     display: flex;
     flex-direction: column;
-    width: 90vw;
-    /* justify-content: center; */
+    width: 80vw;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 0.5rem;
 }

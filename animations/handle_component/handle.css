@@ -1,15 +1,7 @@
-.PlayGame {
-    position: absolute;
-    right: -6rem;
-    top: 20rem;
-    z-index: -10;
-}
-
 .handle-container {
     position: relative;
     width: max-content;
     height: max-content;
-
 }
 
 .content-container {
@@ -40,7 +32,7 @@
     left: 100px;
     width: 150px;
     height: 150px;
-    background-color: rgb(2, 0, 15);
+    background-color: white;
     border-radius: 0 0 25% 0;
 }
 
