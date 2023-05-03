@@ -1,6 +1,12 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import CashoutBox from '../components/CashoutBox';
+
+import useSound from 'use-sound';
+import cashOutSuccessSound from '../sounds/cashoutSound.wav'
+import cashOutFailureSound from '../sounds/clang.wav'
+import playGameSound from '../sounds/playGameSound.flac';
+
+
 import PayIn from '../components/PayIn';
 import PlayGame from '../components/PlayGame';
 import ShowBalance from '../components/ShowBalance';
@@ -108,10 +114,16 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) =
         return arr[(Math.random() * arr.length) | 0]
     }
 
+    const [makePlayClickedSound] = useSound(
+        playGameSound
+    )
+
+
     const handlePlayClicked = () => {
         console.log("handlePlayclicked triggered")
 
         if (balance >= -costPerGame) {
+            makePlayClickedSound() 
             let temp = gamePlayedCounter
             temp = temp + 1
             setGamePlayedCounter(temp)    
@@ -137,6 +149,14 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) =
 
     }
 
+    const [makeCashOutSuccessSound] = useSound(
+        cashOutSuccessSound
+    )
+
+    const [makeCashOutFailureSound] = useSound(
+        cashOutFailureSound
+    )
+
     const requestCashout = () => {
         console.log('requestCashout triggered')
         // I'm going to make the requestCashout feature 'buggy' on purpose! 
@@ -144,12 +164,14 @@ const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) =
         const randomNumber = Math.random()
 
         if (randomNumber < 0.60) {
+            makeCashOutSuccessSound()
             // Make a nice paying cash out noise here 
             setCashoutBalance(balance)
             clearBalance()
             console.log("Cashout pays out")
         } else {
             // Make a crunchy broken-sounding noise here 
+            makeCashOutFailureSound()
             console.log("Cashout doesn't pay out")
         }
 

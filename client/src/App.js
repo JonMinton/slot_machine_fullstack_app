@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+
 import './App.css';
 import RulesDisplay from './components/RulesDisplay';
 
@@ -148,12 +149,17 @@ function App() {
     setUsers(tempUsers)
   }
 
+
+
+
+
   return (
       <div className="App">
           <UserSelection users={users} handleActiveUserSelected={handleActiveUserSelected} handleAddNewUser={handleAddNewUser} activeUser={activeUser} />
           {activeUser && <GameBox balance={activeUser.balance} updateBalance={updateBalance} cards={cards} clearBalance={clearBalance} costPerGame={costPerGame}/>}
           {activeUser && <RulesDisplay />}
           {users && <AdminBox users={users} handleUserNameChange={handleUserNameChange} handleBarUser={handleBarUser} costPerGame = {costPerGame} handleChangeCost = {handleChangeCost}/>}
+
       </div>
   );
 }
