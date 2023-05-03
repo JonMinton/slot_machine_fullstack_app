@@ -1,5 +1,5 @@
 .App {
-
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,6 +14,20 @@
     margin-top: 0.5rem;
 }
 
+.toggle-admin {
+    position: absolute;
+    width: max-content;
+    right: 0.5rem;
+    background-color: transparent;
+    border: none;
+    color: darkslategray;
+    text-decoration: underline;
+}
+
+.toggle-admin:hover {
+    color: aqua;
+    border: 1px solid aqua;
+}
 
 /* keep .hidden at bottom of stylesheet */
 .hidden {

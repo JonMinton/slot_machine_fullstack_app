@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './UserNewForm.css'
 
 const UserNewForm = ({ handleUserAdd, newUser, handleNewUser }) => {
 
@@ -34,16 +35,18 @@ const UserNewForm = ({ handleUserAdd, newUser, handleNewUser }) => {
     return (
         <div className="UserNewForm">
             <form onSubmit={handleNewUserSubmit}>
-                <label htmlFor="newUserName">Name:</label>
+                <label class="hidden" htmlFor="newUserName">Name:</label>
                 <input
+                    placeholder='Enter User Name'
                     type="text"
                     id='newUserName'
                     name='newUserName'
                     onChange={handleNameChange}
                     value={userName}
                 />
-                <label htmlFor="newUserBalance">Initial Balance:</label>
+                <label class="hidden" htmlFor="newUserBalance">Initial Balance:</label>
                 <input
+                    placeholder='How much do you want to gamble?'
                     type="number"
                     step="0.01"
                     id="newUserBalance"

@@ -36,7 +36,7 @@ const UserSelection = ({ users, handleActiveUserSelected, handleAddNewUser, acti
 
     return (
         <div className="UserSelection">
-            <h2>{activeUser ? `Player: ${activeUser.name}` : 'Roll up Roll up!'}</h2>
+            <h2 class="neon">CR<span class="drop-out">AZY J</span>ACKPOTS</h2>
             {/* <p>There are {users.length} users</p> */}
             <UserExistingSelect
                 users={users}

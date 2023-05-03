@@ -1,10 +1,11 @@
-.WheelHold {
-    background-color: rgba(71, 61, 139, 0.500);
-}
-
 .WheelHold>button {
-    margin: auto;
-    padding: 0.4rem 1.2rem;
-    border: 2px solid green;
+    width: 6rem;
+    height: 5rem;
+    border: 4px solid rgb(0, 0, 0);
     border-radius: 10%;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-align: center;
+    background: rgb(208, 222, 38);
+    background: linear-gradient(52deg, rgba(208, 222, 38, 1) 35%, rgba(48, 129, 25, 1) 96%);
 }

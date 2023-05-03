@@ -5,8 +5,8 @@ const StreakBox = ({ winStreak, loseStreak }) => {
     return (
         <div className="StreakBox">
 
-            <span> Streak - Win:{winStreak}</span>
-            <span>Lose:{loseStreak}</span>
+            Streak -  <span class="s-win">Win:{winStreak}</span>
+            <span class="s-lose"> Lose:{loseStreak}</span>
         </div>
     );
 }
