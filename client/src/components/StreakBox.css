@@ -2,4 +2,12 @@
     padding: 0.2rem 0.6rem;
     border: 2px solid black;
     border-radius: 10%;
+    margin-top: 1.2rem;
+    background-color: rgb(93 84 84 / 26%);
+    font-size: 1.3rem;
+}
+
+.StreakBox .StreakBox-Number {
+    background-color: rgb(197, 209, 173);
+    font-family: 'Orbitron', sans-serif;
 }

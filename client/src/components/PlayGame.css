@@ -50,5 +50,6 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: black;
+    background-color: red;
+    background-image: radial-gradient( circle closest-side, yellow, #c5681f );
 }
