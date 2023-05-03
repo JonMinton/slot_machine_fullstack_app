@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     margin: 1rem;
-    background: radial-gradient(circle at center, #efe9e9 0, #ffcf00, #e2d5bc 100%);
+    background: radial-gradient(circle at center, #ebd9d9 0, #af9c45, #c29238 100%);
 }
 
 .CashoutDisplay>span {
