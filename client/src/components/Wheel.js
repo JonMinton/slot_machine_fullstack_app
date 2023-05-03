@@ -11,11 +11,23 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel, resetAnimati
     const [spinning, setSpinning] = useState([false, false, false, false])
     const [stopped, setStopped] = useState([false, false, false, false]);
 
+    const [wheelSetURLs, setWheelSetURLs] = useState([])
+    const [chosenURL, setChosenURL] = useState('')
+
+    useEffect(() => {
+        setWheelSetURLs(wheelSetSchedules.map(image => image.imageURL))
+    }, [wheelSetSchedules])
+
+    useEffect(() => {
+        let chosen = wheelSetSchedules.find(image => image.code === symbol)
+        setChosenURL(chosen.imageURL)
+    })
+
     const wheelSides = useRef([])
     const overlay = useRef(null)
 
-    let chosen = wheelSetSchedules.find(image => image.code === symbol)
-    let chosenURL = chosen.imageURL
+    // let chosen = wheelSetSchedules.find(image => image.code === symbol)
+    // let chosenURL = chosen.imageURL
 
 
     // if spinningWheel is passed in as true the spin func is called
@@ -30,7 +42,7 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel, resetAnimati
         overlay.current.style.opacity = 0
         wheelSides.current.forEach((wSide, i) => {
             // Set the background image and style properties of the div
-            wSide.style.backgroundImage = `url(${wheelSetSchedules[i].imageURL})`;
+            wSide.style.backgroundImage = `url(${wheelSetURLs[i]})`;
             wSide.style.backgroundSize = "cover";
             wSide.style.backgroundPosition = "center";
             wSide.style.backgroundRepeat = "no-repeat";
