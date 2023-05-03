@@ -10,6 +10,11 @@
     border-radius: 12%;
 }
 
+.cardImage {
+    background-clip: content-box;
+}
+
+
 .symbol {
     position: absolute;
 
@@ -84,4 +89,16 @@ in js add the faster class after x secs, then remove it again,
     100% {
         transform: translateY(200%);
     }
+
+.cropped {
+    width: 200px; /* width of container */
+    height: 200px; /* height of container */
+    object-fit: cover;
+}
+.cardImage {
+    width: 200%;
+    height: 200%;
+    object-fit: cover;
+    object-position: -100px -180px;
+
 }

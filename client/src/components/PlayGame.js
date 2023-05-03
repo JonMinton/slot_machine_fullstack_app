@@ -1,5 +1,7 @@
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
+
 import './PlayGame.css'
+
 
 const PlayGame = ({ handlePlay }) => {
     const handleContainer = useRef(null)
