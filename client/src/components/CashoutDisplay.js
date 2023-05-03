@@ -1,9 +1,9 @@
 import React from 'react';
 import './CashoutDisplay.css'
 
-const CashoutDisplay = () => {
+const CashoutDisplay = ({cashoutBalance}) => {
     return (
-        <div className="CashoutDisplay"> <span>£0.00 </span></div>
+        <div className="CashoutDisplay"> <span>£{(Math.round(cashoutBalance * 100) / 100).toFixed(2)} </span></div>
     );
 }
 

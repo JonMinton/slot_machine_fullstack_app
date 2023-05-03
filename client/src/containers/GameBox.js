@@ -10,7 +10,7 @@ import CashoutButton from '../components/CashoutButton';
 import CashoutDisplay from '../components/CashoutDisplay';
 import './GameBox.css'
 
-const GameBox = ({ balance, updateBalance, cards }) => {
+const GameBox = ({ balance, updateBalance, cards , clearBalance, costPerGame}) => {
 
     const [wheelSet, setWheelSet] = useState(
         cards.map((card) => {
@@ -31,8 +31,6 @@ const GameBox = ({ balance, updateBalance, cards }) => {
     )
 
 
-    const [costPerGame, setCostPerGame] = useState(0.10)
-
     const [gamePlayedCounter, setGamePlayedCounter] = useState(-2)
     const [loseStreakCounter, setLoseStreakCounter] = useState(0)
     const [winStreakCounter, setWinStreakCounter] = useState(0)
@@ -41,10 +39,12 @@ const GameBox = ({ balance, updateBalance, cards }) => {
     const [holdStatuses, setHoldStatuses] = useState([false, false, false])
     const [preventHold, setPreventHold] = useState(false)
 
+    const [cashoutBalance, setCashoutBalance] = useState(0)
+
     useEffect( () => {
         if (gamePlayedCounter >= 0) {
         console.log("gamePlayedCounter change detected")
-        updateBalance(-costPerGame)   
+        updateBalance(costPerGame)   
         updateWheelSymbols()
         }
     }, [gamePlayedCounter])
@@ -137,6 +137,24 @@ const GameBox = ({ balance, updateBalance, cards }) => {
 
     }
 
+    const requestCashout = () => {
+        console.log('requestCashout triggered')
+        // I'm going to make the requestCashout feature 'buggy' on purpose! 
+        // 60% of the time it works as expected. 40% of the time it won't work
+        const randomNumber = Math.random()
+
+        if (randomNumber < 0.60) {
+            // Make a nice paying cash out noise here 
+            setCashoutBalance(balance)
+            clearBalance()
+            console.log("Cashout pays out")
+        } else {
+            // Make a crunchy broken-sounding noise here 
+            console.log("Cashout doesn't pay out")
+        }
+
+    }
+
 
     return (
         <div className="GameBox">
@@ -161,11 +179,9 @@ const GameBox = ({ balance, updateBalance, cards }) => {
                 loseStreak = {loseStreakCounter}
             />
             <div className="cashout-container">
-                <CashoutButton />
-                <CashoutDisplay />
+                <CashoutButton requestCashout={requestCashout} />
+                <CashoutDisplay cashoutBalance={cashoutBalance}/>
             </div>
-            
-            <CashoutBox/>
         </div>
     );
 }
