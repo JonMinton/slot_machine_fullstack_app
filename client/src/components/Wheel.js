@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import "./wheel.css"
+import "./Wheel.css"
 /*
 symbols = code for all images for each wheel
 symbol = code for image to stop on
