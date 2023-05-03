@@ -43,6 +43,13 @@ const GameBox = ({ balance, updateBalance, cards }) => {
 
     const [spinWheels, setSpinWheels] = useState(false)
 
+    const startAnimation = () => {
+        setSpinWheels(true)
+    }
+    const resetAnimation = () => {
+        setSpinWheels(false)
+    }
+
     useEffect(() => {
         console.log("gamePlayedCounter change detected")
         updateBalance(-costPerGame)
@@ -105,7 +112,7 @@ const GameBox = ({ balance, updateBalance, cards }) => {
 
     const handlePlayClicked = () => {
         console.log("handlePlayclicked triggered")
-        setSpinWheels(true)
+        startAnimation()
         if (balance >= costPerGame) {
             let temp = gamePlayedCounter
             temp = temp + 1
@@ -153,7 +160,8 @@ const GameBox = ({ balance, updateBalance, cards }) => {
                 updateHoldStatuses={updateHoldStatuses}
                 wheelSetSchedules={wheelSetSchedules}
                 spinWheels={spinWheels}
-                resetWheels={resetWheels}
+                resetAnimation={resetAnimation}
+                resetWheels={resetWheels}//prob dont need this
             />
             <StreakBox
                 winStreak={winStreakCounter}

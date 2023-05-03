@@ -6,7 +6,7 @@ symbol = code for image to stop on
 wheelSetSchedules = array of objects linking code to imageURLs
 
 */
-const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel }) => {
+const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel, resetAnimation }) => {
 
     const [spinning, setSpinning] = useState([false, false, false, false])
     const [stopped, setStopped] = useState([false, false, false, false]);
@@ -16,7 +16,6 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel }) => {
 
     let chosen = wheelSetSchedules.find(image => image.code === symbol)
     let chosenURL = chosen.imageURL
-    let imageArray = wheelSetSchedules.map(image => image.imageURL)
 
 
     // if spinningWheel is passed in as true the spin func is called
@@ -87,6 +86,7 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel }) => {
             setSpinning(prevState => prevState.map(() => false));
             setStopped(prevState => prevState.map(() => false));
             overlay.current.style.opacity = 1;
+            resetAnimation();
         }, 5500);
     };
 

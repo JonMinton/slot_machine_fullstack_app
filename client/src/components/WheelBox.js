@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Wheel from './Wheel';
 import WheelHold from './WheelHold';
 
-const WheelBox = ({ wheelId, symbols, symbol, holdStatus, updateHoldStatus, wheelSetSchedules, spinning }) => {
+const WheelBox = ({ wheelId, symbols, symbol, holdStatus, updateHoldStatus, wheelSetSchedules, spinning, resetAnimation }) => {
 
     const handleToggle = () => {
         updateHoldStatus(wheelId)
@@ -19,6 +19,7 @@ const WheelBox = ({ wheelId, symbols, symbol, holdStatus, updateHoldStatus, whee
                 symbol={symbol}
                 wheelSetSchedules={wheelSetSchedules}
                 spinningWheel={spinning}
+                resetAnimation={resetAnimation}
             />
             <WheelHold hold={holdStatus} toggleHold={handleToggle} />
         </div>
