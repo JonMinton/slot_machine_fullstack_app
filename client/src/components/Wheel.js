@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect} from 'react';
 import './Wheel.css'
 
@@ -18,7 +19,9 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules}) => {
     }
     return (
         <div className="Wheel">
-            <img src={getUrl()} alt = {symbol} width='200px' />
+            <div className='cropped'>
+                <img className='cardImage' src={getUrl()} alt = {symbol} width='100%' />
+            </div>
         </div>
     );
 }
