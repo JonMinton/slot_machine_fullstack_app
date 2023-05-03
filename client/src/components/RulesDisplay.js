@@ -11,7 +11,8 @@ const RulesDisplay = () => {
             <h4>No spitting until we get more sawdust - use mug provided</h4>
         </div>
         </div>
+
         </>
-      );
+    );
 }
 export default RulesDisplay;

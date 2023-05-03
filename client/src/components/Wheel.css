@@ -14,6 +14,7 @@
     background-clip: content-box;
 }
 
+
 .symbol {
     position: absolute;
 
@@ -88,7 +89,6 @@ in js add the faster class after x secs, then remove it again,
     100% {
         transform: translateY(200%);
     }
-}
 
 .cropped {
     width: 200px; /* width of container */
@@ -100,4 +100,5 @@ in js add the faster class after x secs, then remove it again,
     height: 200%;
     object-fit: cover;
     object-position: -100px -180px;
+
 }

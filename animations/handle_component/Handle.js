@@ -1,9 +1,8 @@
-import React, {useRef} from 'react';
+import React, { useRef, useEffect } from 'react'
+import "./handle.css"
 
-import './PlayGame.css'
+const Handle = () => {
 
-
-const PlayGame = ({ handlePlay }) => {
     const handleContainer = useRef(null)
     const knob = useRef(null)
 
@@ -11,9 +10,8 @@ const PlayGame = ({ handlePlay }) => {
         handleContainer.current.classList.add('pulled');
         setTimeout(() => {
             handleContainer.current.classList.remove('pulled');
-        }, 1200)
-        handlePlay()
-    }
+        }, 1200);
+    };
 
 
     return (<div className="Handle">
@@ -27,6 +25,4 @@ const PlayGame = ({ handlePlay }) => {
     </div>);
 }
 
-
-
-export default PlayGame;
+export default Handle;
