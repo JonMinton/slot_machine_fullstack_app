@@ -1,11 +1,55 @@
 .PlayGame {
-    background-color: rgba(189, 183, 107, 0.5);
+    position: absolute;
+    right: -6rem;
+    top: 20rem;
+    z-index: -10;
 }
 
-.PlayGame>button {
-    height: 100%;
-    padding: 0 1rem;
-    border: 2px red solid;
-    border-radius: 10%;
-    font-size: 1.3rem;
+.handle-container {
+    position: relative;
+    width: max-content;
+    height: max-content;
+
+}
+
+.content-container {
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform-origin: 150px 200px;
+}
+
+.content-container>* {
+    position: absolute;
+}
+
+.pulled {
+    transform: translateY(150px) rotateX(180deg);
+}
+
+.base {
+    top: 100px;
+    left: 100px;
+    width: 200px;
+    height: 200px;
+    background-color: slategray;
+    border-radius: 0 0 25% 0;
+}
+
+.handle-overlay {
+    top: 100px;
+    left: 100px;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(2, 0, 15);
+    border-radius: 0 0 25% 0;
+}
+
+.knob {
+    left: 225px;
+    top: 25px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+    background-image: radial-gradient( circle closest-side, yellow, #c5681f );
 }
