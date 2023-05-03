@@ -3,7 +3,8 @@ import WheelBox from './WheelBox';
 import './WheelsDisplay.css'
 
 const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses, updateHoldStatuses,
-    wheelSetSchedules, spinWheels, resetWheels, resetAnimation }) => {
+    wheelSetSchedules, spinWheels, resetWheels, resetAnimation, preventHold}) => {
+
 
 
     const updateHoldStatus = (id) => {
@@ -47,8 +48,10 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
                 holdStatus={holdStatuses[0]}
                 updateHoldStatus={updateHoldStatus}
                 wheelSetSchedules={wheelSetSchedules}
+
                 spinning={w1Spinning}
                 resetAnimation={resetAnimation}
+                preventHold = {preventHold}
             />
             <WheelBox
                 key={2}
@@ -58,9 +61,10 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
                 holdStatus={holdStatuses[1]}
                 updateHoldStatus={updateHoldStatus}
                 wheelSetSchedules={wheelSetSchedules}
+
                 spinning={w2Spinning}
                 resetAnimation={resetAnimation}
-
+                preventHold = {preventHold}
             />
             <WheelBox
                 key={3}
@@ -72,6 +76,9 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
                 wheelSetSchedules={wheelSetSchedules}
                 spinning={w3Spinning}
                 resetAnimation={resetAnimation}
+
+
+                preventHold = {preventHold}
 
             />
 

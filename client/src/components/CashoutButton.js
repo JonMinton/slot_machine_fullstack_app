@@ -1,10 +1,16 @@
 import React from 'react';
 import './CashoutButton.css'
 
-const CashoutButton = () => {
+const CashoutButton = ({requestCashout}) => {
+
+    const handleClick = () => {
+        console.log("Cashout button click detected")
+        requestCashout()
+    }
+
     return (
         <div className="CashoutButton">
-            <button>Cash Out</button>
+            <button onClick={handleClick}>Cash Out</button>
         </div>
     );
 }
