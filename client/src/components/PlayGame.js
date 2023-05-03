@@ -12,7 +12,7 @@ const PlayGame = ({ handlePlay }) => {
 
     return (
         <div className="PlayGame">
-            <button onClick={handleClick}><strong>Play!</strong></button>
+            <button className="ButtonOff" onClick={handleClick}><strong>Play!</strong></button>
         </div>
     );
 }

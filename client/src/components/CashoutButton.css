@@ -2,4 +2,39 @@
     padding: 0.6rem 1.8rem;
     outline: 1px solid red;
     border: 2px solid yellow;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.CashoutButton {
+    background-color: rgba(71, 61, 139, 0.500);
+}
+
+.CashoutButton > .ButtonOn {
+    margin: auto;
+    padding: 0.4rem 1.2rem;
+    border: 2px solid rgb(94, 69, 17);
+    border-radius: 10%;
+    font-size: 2.5rem;
+    color:chocolate;
+    background-color: rgb(213, 202, 104);
+}
+
+.CashoutButton > .ButtonOff {
+    margin: auto;
+    padding: 0.4rem 1.2rem;
+    border: 2px solid rgb(94, 69, 17);
+    border-radius: 10%;
+    background-color: rgb(100, 103, 44);
+    font-size: 2.5rem;
+    color:chocolate;
+}
+
+.CashoutButton > .ButtonOff:active {
+    margin: auto;
+    padding: 0.4rem 1.2rem;
+    border: 2px solid rgb(94, 69, 17);
+    border-radius: 10%;
+    font-size: 2.5rem;
+    color:chocolate;
+    background-color: rgb(213, 202, 104);
 }

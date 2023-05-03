@@ -10,7 +10,7 @@ const CashoutButton = ({requestCashout}) => {
 
     return (
         <div className="CashoutButton">
-            <button onClick={handleClick}>Cash Out</button>
+            <button className="ButtonOff" onClick={handleClick}>Cash Out</button>
         </div>
     );
 }
