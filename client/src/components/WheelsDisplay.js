@@ -3,7 +3,7 @@ import WheelBox from './WheelBox';
 import './WheelsDisplay.css'
 
 const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuses, updateHoldStatuses,
-    wheelSetSchedules, spinWheels, resetWheels, resetAnimation, preventHold}) => {
+    wheelSetSchedules, spinWheels, resetWheels, resetAnimation, preventHold }) => {
 
 
 
@@ -25,9 +25,9 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
     // // let chosenSymbol = "🍑"
 
     const spinTheWheels = () => {
-        setW1Spinning(spinWheels)
-        setTimeout(() => setW2Spinning(spinWheels), 500)
-        setTimeout(() => {
+        if (!holdStatuses[0]) setW1Spinning(spinWheels)
+        if (!holdStatuses[1]) setTimeout(() => setW2Spinning(spinWheels), 500)
+        if (!holdStatuses[2]) setTimeout(() => {
             setW3Spinning(spinWheels)
             // resetWheels()
         }, 1000)
@@ -51,7 +51,7 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
 
                 spinning={w1Spinning}
                 resetAnimation={resetAnimation}
-                preventHold = {preventHold}
+                preventHold={preventHold}
             />
             <WheelBox
                 key={2}
@@ -64,7 +64,7 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
 
                 spinning={w2Spinning}
                 resetAnimation={resetAnimation}
-                preventHold = {preventHold}
+                preventHold={preventHold}
             />
             <WheelBox
                 key={3}
@@ -78,7 +78,7 @@ const WheelsDisplay = ({ wheelSet, wheelSymbols, updateWheelSymbols, holdStatuse
                 resetAnimation={resetAnimation}
 
 
-                preventHold = {preventHold}
+                preventHold={preventHold}
 
             />
 

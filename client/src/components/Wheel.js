@@ -24,7 +24,7 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel, resetAnimati
     })
 
     const wheelSides = useRef([])
-    const overlay = useRef(null)
+    // const overlay = useRef(null)
 
     // let chosen = wheelSetSchedules.find(image => image.code === symbol)
     // let chosenURL = chosen.imageURL
@@ -37,9 +37,10 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel, resetAnimati
         }
     }, [spinningWheel]);
 
+
     function spin() {
         console.dir(wheelSides.current[0])
-        overlay.current.style.opacity = 0
+        // overlay.current.style.opacity = 0
         wheelSides.current.forEach((wSide, i) => {
             // Set the background image and style properties of the div
             wSide.style.backgroundImage = `url(${wheelSetURLs[i]})`;
@@ -97,9 +98,9 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel, resetAnimati
         setTimeout(() => {
             setSpinning(prevState => prevState.map(() => false));
             setStopped(prevState => prevState.map(() => false));
-            overlay.current.style.opacity = 1;
             resetAnimation();
-        }, 5500);
+            // overlay.current.style.opacity = 1;
+        }, 10500);
     };
 
     // below we map over symbols to create each 'wheel-side' (i was struggling for names for that one... :-)
@@ -117,7 +118,7 @@ const Wheel = ({ symbols, symbol, wheelSetSchedules, spinningWheel, resetAnimati
                     className={`symbol s${index + 1} ${spinning[index] ? 'spinning' : ''}  ${stopped[index] ? 'stopped' : ''}`}
                 ></div>
             ))}
-            <div ref={overlay} className="overlay">?</div>
+            {/* <div ref={overlay} className="overlay">?</div> */}
         </div>
         {/* <button ref={spinBtn} className="spin" onClick={spin}>SPIN!</button> */}
 

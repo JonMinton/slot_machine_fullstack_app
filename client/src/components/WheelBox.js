@@ -13,6 +13,8 @@ const WheelBox = ({ wheelId, symbols, symbol, holdStatus, updateHoldStatus, whee
     }
 
 
+
+
     return (
         <div className="WheelBox">
             <Wheel
