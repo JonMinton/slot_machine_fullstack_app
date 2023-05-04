@@ -14,7 +14,7 @@
 
 
 ## App design 
-- React frontend (15+ components), express server, mongodb database. calls to external API to get card symbol images
+- React frontend, express server, mongodb database. calls to external API to get card symbol images
 
 ## React logic (Jon)
 
