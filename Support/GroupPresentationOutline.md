@@ -9,6 +9,8 @@
 - MVP working fruit machine, player can add coins, play game, win money and cash out.
 - Animations used for handle and wheels
 - Sound effects added
+- Cost per play can be changed
+- Users updated and deleted
 ## App design 
 - React frontend (15+ components)
 ## React logic (Jon)
