@@ -1,0 +1,17 @@
+# Group presentation - Fruit machine React app
+
+
+## App demo (all)
+## Project brief
+- Kanban board used
+- Individual task when remote working, mainly mod programming when at codeclan
+- Worked on individual branches and merged to main at daily stand up
+- MVP working fruit machine, player can add coins, play game, win money and cash out.
+- Animations used for handle and wheels
+- Sound effects added
+## App design 
+- React frontend (15+ components)
+## React logic (Jon)
+## Backend (Greg and Andrew)
+## Frontend animations and styling (Paul)
+
