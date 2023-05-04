@@ -1,4 +1,4 @@
-# Group presentation - Fruit machine React app
+# Group presentation outline - Fruit machine React app
 
 
 ## App demo (all)
